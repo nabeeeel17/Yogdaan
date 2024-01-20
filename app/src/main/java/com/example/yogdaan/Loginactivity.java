@@ -1,7 +1,5 @@
 package com.example.yogdaan;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,10 +30,13 @@ public class Loginactivity extends AppCompatActivity {
     EditText password;
     Button login;
     TextView sign;
+    RadioGroup radioGroup;
+    RadioButton radioButtton1, radioButton2 ;
 
     FirebaseAuth firebaseAuth;
 
     FirebaseFirestore firestore;
+    String  selectedbutton , radiovalue ;
 
 
     @Override
@@ -41,6 +44,8 @@ public class Loginactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginactivity);
         init();
+
+
 
         sign.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,8 +58,16 @@ public class Loginactivity extends AppCompatActivity {
             public void onClick(View view) {
                 String emal = email.getText().toString();
                 String pass = password.getText().toString();
-                userdetails();
-                loginuser(emal , pass);
+
+
+                if (emal.isEmpty() && pass.isEmpty()) {
+                    Toast.makeText(Loginactivity.this, "Please Enter All The Credentials", Toast.LENGTH_SHORT).show();
+                } else {
+                    radiovalue = ((RadioButton)findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
+                    Log.e("Name" , radiovalue);
+                    userdetails(emal , pass , radiovalue);
+                    loginuser(emal, pass);
+                }
             }
         });
     }
@@ -63,13 +76,20 @@ public class Loginactivity extends AppCompatActivity {
         firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
+                if (task.isSuccessful()) {
 
-                    Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Loginactivity.this, Homeactivity.class));
+
+                    if (selectedbutton.equals(R.id.donorradio)) {
+                        startActivity(new Intent(Loginactivity.this, Homeactivity.class));
+                        Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    } else {
+                        startActivity(new Intent(Loginactivity.this, Organisationdetails.class));
+                        Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    }
+
+
                     task.getResult();
-                }
-                else {
+                } else {
                     Toast.makeText(Loginactivity.this, "Please Enter Valid Email And Password", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -77,34 +97,41 @@ public class Loginactivity extends AppCompatActivity {
     }
 
 
-    void init(){
-     firebaseAuth = FirebaseAuth.getInstance();
-     email=findViewById(R.id.emailfield);
-     password=findViewById(R.id.passwordfield);
-     login=findViewById(R.id.loginButton);
-     sign=findViewById(R.id.noacc);
-     firestore= FirebaseFirestore.getInstance();
+    void init() {
+        firebaseAuth = FirebaseAuth.getInstance();
+        email = findViewById(R.id.emailfield);
+        password = findViewById(R.id.passwordfield);
+        login = findViewById(R.id.loginButton);
+        sign = findViewById(R.id.noacc);
+        firestore = FirebaseFirestore.getInstance();
+        radioGroup = findViewById(R.id.rg);
+        radioButtton1 = findViewById(R.id.donorradio);
+        radioButton2 = findViewById(R.id.orgradio);
+        selectedbutton = (String.valueOf(findViewById(radioGroup.getCheckedRadioButtonId())));
+
     }
 
-    void userdetails(){
-        Map<String , Object> User = new HashMap<>();
-        User.put("Name" ,email.getText().toString());
+    void userdetails(String emaill, String password, String typeofuser) {
 
-        firestore.collection("Users Details").document(email.getText().toString())
+        Map<String, Object> User = new HashMap<>();
+
+        User.put("Name", emaill);
+        User.put("Type of User" ,typeofuser );
+
+        firestore.collection("Users Details").document(emaill.toString())
                 .set(User)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "User Added");
+                        Log.e("6969", "USer Details Added");
+                        Toast.makeText(Loginactivity.this, "User Added", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error writing document", e);
+                        Log.e("6969", "Error writing document", e);
                     }
                 });
-
-
     }
 }

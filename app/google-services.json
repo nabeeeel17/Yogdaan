@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "881377323984",
+    "project_id": "yogdaan-c6f65",
+    "storage_bucket": "yogdaan-c6f65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881377323984:android:2487c1fedfcddb386427d5",
+        "android_client_info": {
+          "package_name": "com.example.yogdaan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjtqFTmaPBLlf1z74Hh7aedou-aXYwj5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
