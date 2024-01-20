@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:682964391568:android:cb7453ed80c8fb860e2a15",
         "android_client_info": {
-          "package_name": "com.example.firstfirebase"
+          "package_name": "com.example.yogdaan"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "682964391568-r99dnsai3i99o4sm4s9s5r1mveulhkq5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.firstfirebase",
+            "package_name": "com.example.yogdaan",
             "certificate_hash": "26a3aa0bb6c24c389d094bfee9a27ee1afffe36b"
           }
         },
