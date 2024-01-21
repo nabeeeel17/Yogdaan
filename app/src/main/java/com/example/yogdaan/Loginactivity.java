@@ -44,7 +44,7 @@ public class Loginactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginactivity);
         init();
-
+        radiovalue = ((RadioButton)findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
 
 
         sign.setOnClickListener(new View.OnClickListener() {
@@ -66,27 +66,27 @@ public class Loginactivity extends AppCompatActivity {
                     radiovalue = ((RadioButton)findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
                     Log.e("Name" , radiovalue);
                     userdetails(emal , pass , radiovalue);
-                    loginuser(emal, pass);
+                    loginuser(emal, pass,radiovalue);
+
                 }
             }
         });
     }
 
-    private void loginuser(String email, String pass) {
+    private void loginuser(String email, String pass, String value) {
         firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
 
 
-                    if (selectedbutton.equals(R.id.donorradio)) {
+                    if (value=="Donor") {
                         startActivity(new Intent(Loginactivity.this, Homeactivity.class));
                         Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    } else {
+                    } else if(value=="Organisation"){
                         startActivity(new Intent(Loginactivity.this, Organisationdetails.class));
                         Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     }
-
 
                     task.getResult();
                 } else {
@@ -108,7 +108,7 @@ public class Loginactivity extends AppCompatActivity {
         radioButtton1 = findViewById(R.id.donorradio);
         radioButton2 = findViewById(R.id.orgradio);
         selectedbutton = (String.valueOf(findViewById(radioGroup.getCheckedRadioButtonId())));
-
+        radiovalue = ((RadioButton)findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
     }
 
     void userdetails(String emaill, String password, String typeofuser) {

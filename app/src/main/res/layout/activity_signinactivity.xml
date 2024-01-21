@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Signinactivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/b">
 
     <!-- An EditText to enter the email -->
     <com.google.android.material.textfield.TextInputLayout
@@ -41,15 +42,17 @@
     <!-- A Button to perform the login action -->
     <Button
         android:id="@+id/signinButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Sign In" />
+        android:text="Sign In"
+        android:background="#70C374"/>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Already Have An Account? Log In"
         android:id="@+id/gotolog"/>
 
