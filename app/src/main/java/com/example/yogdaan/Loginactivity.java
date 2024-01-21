@@ -40,6 +40,8 @@ public class Loginactivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
 
     FirebaseFirestore firestore;
+    int selected;
+    String type;
 
 
 
@@ -49,6 +51,7 @@ public class Loginactivity extends AppCompatActivity {
         setContentView(R.layout.activity_loginactivity);
         init();
         checklogin();
+
 
 
         sign.setOnClickListener(new View.OnClickListener() {
@@ -106,13 +109,16 @@ public class Loginactivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    if(radioGroup.getCheckedRadioButtonId()==R.id.donorradio){
+                    Log.e("6969",""+selected);
+                    if(radioButton1.isChecked()){
+                        type = radioButton1.getText().toString();
                         startActivity(new Intent(Loginactivity.this , Homeactivity.class));
-                        userdetails(email,pass,radioButton1.getText().toString().trim());
-                        finish();
-                    } else if (radioGroup.getCheckedRadioButtonId()==R.id.orgradio) {
+                        userdetails(email,pass,type);
+                       finish();
+                    } else if (radioButton2.isChecked()) {
+                        type= radioButton2.getText().toString();
                         startActivity(new Intent(Loginactivity.this , Organisationdetails.class));
-                        userdetails(email,pass,radioButton2.getText().toString().trim());
+                        userdetails(email,pass,type);
                         finish();
 
                     }
@@ -139,6 +145,7 @@ public class Loginactivity extends AppCompatActivity {
         radioButton1 = findViewById(R.id.donorradio);
         radioButton2 = findViewById(R.id.orgradio);
         currentuser=firebaseAuth.getCurrentUser();
+        selected=radioGroup.getCheckedRadioButtonId();
     }
 
     void userdetails(String emaill, String password, String typeofuser) {

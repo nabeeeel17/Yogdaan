@@ -24,16 +24,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Organisation Name"
-
+        android:id="@+id/orgname"
         />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Organization Mobile Number"
-            />
+            android:id="@+id/orgmbo"
+            android:inputType="phone"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Organization E-Mail ID"
+            android:id="@+id/orgemail"
+            android:inputType="textEmailAddress"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Organization address"
+            android:id="@+id/orgaddress"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Organization Pin Code"
+            android:inputType="number"
+            android:id="@+id/orgpinc" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"/>
 
 
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        android:id="@+id/proceed"/>
 
 </LinearLayout>
