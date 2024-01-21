@@ -20,23 +20,27 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Loginactivity extends AppCompatActivity {
     EditText email;
+    FirebaseUser currentuser;
     EditText password;
     Button login;
     TextView sign;
     RadioGroup radioGroup;
-    RadioButton radioButtton1, radioButton2 ;
+    RadioButton radioButton1 , radioButton2;
 
     FirebaseAuth firebaseAuth;
 
     FirebaseFirestore firestore;
-    String  selectedbutton , radiovalue ;
+
 
 
     @Override
@@ -44,7 +48,7 @@ public class Loginactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginactivity);
         init();
-
+        checklogin();
 
 
         sign.setOnClickListener(new View.OnClickListener() {
@@ -63,13 +67,38 @@ public class Loginactivity extends AppCompatActivity {
                 if (emal.isEmpty() && pass.isEmpty()) {
                     Toast.makeText(Loginactivity.this, "Please Enter All The Credentials", Toast.LENGTH_SHORT).show();
                 } else {
-                    radiovalue = ((RadioButton)findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
-                    Log.e("Name" , radiovalue);
-                    userdetails(emal , pass , radiovalue);
                     loginuser(emal, pass);
                 }
+
             }
         });
+
+
+    }
+    void checklogin(){
+        if(currentuser!=null){
+            firestore.collection("Users Details").document(currentuser.getEmail().toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if(task.isSuccessful()) {
+                        String type = task.getResult().getString("Type of User");
+                        if (type != null) {
+
+
+                            if (type.equals("Donor")) {
+                                startActivity(new Intent(Loginactivity.this, Homeactivity.class));
+                                finish();
+                            } else {
+                                startActivity(new Intent(Loginactivity.this, Organisationdetails.class));
+                                finish();
+
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
     }
 
     private void loginuser(String email, String pass) {
@@ -77,38 +106,39 @@ public class Loginactivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    if(radioGroup.getCheckedRadioButtonId()==R.id.donorradio){
+                        startActivity(new Intent(Loginactivity.this , Homeactivity.class));
+                        userdetails(email,pass,radioButton1.getText().toString().trim());
+                        finish();
+                    } else if (radioGroup.getCheckedRadioButtonId()==R.id.orgradio) {
+                        startActivity(new Intent(Loginactivity.this , Organisationdetails.class));
+                        userdetails(email,pass,radioButton2.getText().toString().trim());
+                        finish();
 
-
-                    if (selectedbutton.equals(R.id.donorradio)) {
-                        startActivity(new Intent(Loginactivity.this, Homeactivity.class));
-                        Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    } else {
-                        startActivity(new Intent(Loginactivity.this, Organisationdetails.class));
-                        Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     }
-
-
-                    task.getResult();
-                } else {
+                    Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     Toast.makeText(Loginactivity.this, "Please Enter Valid Email And Password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 
 
     void init() {
+
         firebaseAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.emailfield);
         password = findViewById(R.id.passwordfield);
         login = findViewById(R.id.loginButton);
         sign = findViewById(R.id.noacc);
         firestore = FirebaseFirestore.getInstance();
-        radioGroup = findViewById(R.id.rg);
-        radioButtton1 = findViewById(R.id.donorradio);
+        radioGroup = findViewById(R.id.radioGroup);
+        radioButton1 = findViewById(R.id.donorradio);
         radioButton2 = findViewById(R.id.orgradio);
-        selectedbutton = (String.valueOf(findViewById(radioGroup.getCheckedRadioButtonId())));
-
+        currentuser=firebaseAuth.getCurrentUser();
     }
 
     void userdetails(String emaill, String password, String typeofuser) {
