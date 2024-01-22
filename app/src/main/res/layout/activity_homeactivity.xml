@@ -100,6 +100,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
+                android:id="@+id/foodcard"
                 app:cardCornerRadius="20dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -142,6 +143,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
+                android:id="@+id/bloodcard"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="20dp">
                 <RelativeLayout
@@ -174,6 +176,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
+                android:id="@+id/grocerycard"
                 app:cardCornerRadius="20dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -217,7 +220,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                android:id="@+id/moneycard">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -248,7 +252,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                android:id="@+id/bookcard">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">

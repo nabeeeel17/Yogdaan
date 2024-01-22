@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PaymentGateway"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:background="@drawable/upiicon"
+        android:layout_marginTop="15dp"
+        android:id="@+id/upiicon"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/description"
+       android:hint="Enter Description"
+       android:layout_gravity="center"
+       />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/amount"
+        android:hint="Enter Amount"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pay"
+        android:id="@+id/pay"
+        /></LinearLayout>
+
+
+</LinearLayout>

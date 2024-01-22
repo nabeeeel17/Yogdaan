@@ -54,6 +54,7 @@ public class Organisationdetails extends AppCompatActivity {
         list.add("Blood");
         list.add("Books");
         list.add("Toys");
+        list.add("Clothes");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this , android.R.layout.simple_spinner_item ,list);
         adapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         spinner.setAdapter(adapter);

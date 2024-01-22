@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -40,8 +41,10 @@ public class Loginactivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
 
     FirebaseFirestore firestore;
+    FirebaseUser user ;
     int selected;
     String type;
+    CollectionReference cref;
 
 
 
@@ -50,7 +53,7 @@ public class Loginactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginactivity);
         init();
-        checklogin();
+
 
 
 
@@ -75,10 +78,13 @@ public class Loginactivity extends AppCompatActivity {
 
             }
         });
+       checklogin();
 
 
     }
     void checklogin(){
+
+        String email = user.getEmail();
         if(currentuser!=null){
             firestore.collection("Users Details").document(currentuser.getEmail().toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
@@ -89,7 +95,10 @@ public class Loginactivity extends AppCompatActivity {
 
 
                             if (type.equals("Donor")) {
-                                startActivity(new Intent(Loginactivity.this, Homeactivity.class));
+                                Intent intent = new Intent(Loginactivity.this , Homeactivity.class);
+                                intent.putExtra("Email" , email );
+                                Log.e("Email" , ""+email);
+                                startActivity(intent);
                                 finish();
                             } else {
                                 startActivity(new Intent(Loginactivity.this, Organisationdetails.class));
@@ -112,12 +121,18 @@ public class Loginactivity extends AppCompatActivity {
                     Log.e("6969",""+selected);
                     if(radioButton1.isChecked()){
                         type = radioButton1.getText().toString();
-                        startActivity(new Intent(Loginactivity.this , Homeactivity.class));
                         userdetails(email,pass,type);
+                        Intent intent = new Intent(Loginactivity.this , Homeactivity.class);
+                        intent.putExtra("Email" , email);
+                        startActivity(intent);
+
                        finish();
                     } else if (radioButton2.isChecked()) {
                         type= radioButton2.getText().toString();
-                        startActivity(new Intent(Loginactivity.this , Organisationdetails.class));
+                        Intent  intent = new Intent(Loginactivity.this , Organisationdetails.class);
+                        intent.putExtra("Email" , email);
+                        startActivity(intent);
+
                         userdetails(email,pass,type);
                         finish();
 
@@ -146,6 +161,8 @@ public class Loginactivity extends AppCompatActivity {
         radioButton2 = findViewById(R.id.orgradio);
         currentuser=firebaseAuth.getCurrentUser();
         selected=radioGroup.getCheckedRadioButtonId();
+        firebaseAuth = FirebaseAuth.getInstance();
+        user=firebaseAuth.getCurrentUser();
     }
 
     void userdetails(String emaill, String password, String typeofuser) {
