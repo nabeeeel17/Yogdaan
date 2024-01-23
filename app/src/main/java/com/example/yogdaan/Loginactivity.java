@@ -99,10 +99,10 @@ public class Loginactivity extends AppCompatActivity {
                                 intent.putExtra("Email" , email );
                                 Log.e("Email" , ""+email);
                                 startActivity(intent);
-                                finish();
+                                //finish();
                             } else {
                                 startActivity(new Intent(Loginactivity.this, Organisationdetails.class));
-                                finish();
+                                //finish();
 
                             }
                         }
@@ -126,7 +126,7 @@ public class Loginactivity extends AppCompatActivity {
                         intent.putExtra("Email" , email);
                         startActivity(intent);
 
-                       finish();
+                       //finish();
                     } else if (radioButton2.isChecked()) {
                         type= radioButton2.getText().toString();
                         Intent  intent = new Intent(Loginactivity.this , Organisationdetails.class);
@@ -134,7 +134,7 @@ public class Loginactivity extends AppCompatActivity {
                         startActivity(intent);
 
                         userdetails(email,pass,type);
-                        finish();
+                        //finish();
 
                     }
                     Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();

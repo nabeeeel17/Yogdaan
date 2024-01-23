@@ -69,7 +69,7 @@ public class Homeactivity extends AppCompatActivity {
         money.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent6 = new Intent(Homeactivity.this , PaymentGateway.class);
+                Intent intent6 = new Intent(Homeactivity.this , MoneyOrgList.class);
                 intent6.putExtra("Email" , email);
                 startActivity(intent6);
             }

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Yogdaan"
         tools:targetApi="31">
         <activity
+            android:name=".MoneyOrgList"
+            android:exported="false" />
+        <activity
             android:name=".PaymentGateway"
             android:exported="false" />
         <activity
@@ -32,7 +35,6 @@
         <activity
             android:name=".CharityList"
             android:exported="false" />
-
         <activity
             android:name=".Organisationdetails"
             android:exported="false" />

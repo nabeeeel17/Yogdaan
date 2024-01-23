@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="7dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,9 +21,19 @@
             android:layout_height="wrap_content"
             android:text="Org Address"
             android:textSize="25dp"
-            android:id="@+id/orgaddress"/>
-
-
+            android:id="@+id/orgaddress" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UPI ID"
+            android:textSize="25dp"
+            android:id="@+id/upi"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/paytorg"
+            android:text="Pay To Organisation"/>
 
     </LinearLayout>
 

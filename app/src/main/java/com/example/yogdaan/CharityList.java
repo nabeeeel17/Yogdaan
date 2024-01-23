@@ -79,9 +79,6 @@ String Email;
                         Log.e("org name" ,""+document.getString("Name"));
                         arrayList.add(cm);
 
-                        //setting up adapter
-
-
                     }
                     adapter=new Adapter(arrayList,getApplicationContext());
                     recyclerView.setLayoutManager(new LinearLayoutManager(CharityList.this));

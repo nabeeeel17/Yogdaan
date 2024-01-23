@@ -13,10 +13,11 @@ import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 ArrayList<CharityModel> arrayList;
+
 Context context;
 
-    public Adapter(ArrayList<CharityModel> arrayList, Context context) {
-        this.arrayList = arrayList;
+    public Adapter(ArrayList<CharityModel> arrayList, Context context ) {
+        this.arrayList= arrayList;
         this.context = context;
     }
 
@@ -24,8 +25,7 @@ Context context;
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View view = (View) LayoutInflater.from(context).inflate(R.layout.charityitem_list, parent, false);
-
-        return new MyViewHolder(view);
+       return new MyViewHolder(view);
     }
 
     @Override

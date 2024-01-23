@@ -95,7 +95,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter UPI ID of Organization"
-            android:inputType="number"
             android:id="@+id/orgupiid"
             android:background="@drawable/border"
             android:padding="8dp"

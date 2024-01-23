@@ -1,6 +1,6 @@
 package com.example.yogdaan;
 
-public class CharityModel {
+public class MoneyModel {
     String Name;
     String address;
     String category;
@@ -9,25 +9,7 @@ public class CharityModel {
     String pincode;
     String upi;
 
-    public String getUpi() {
-        return upi;
-    }
-
-    public void setUpi(String upi) {
-        this.upi = upi;
-    }
-
-    public CharityModel() {
-    }
-
-    public CharityModel(String name, String address, String category, String email, String mbo, String pincode) {
-        Name = name;
-        this.address = address;
-        this.category = category;
-        this.email = email;
-        this.mbo = mbo;
-        this.pincode = pincode;
-        this.upi = upi;
+    public MoneyModel() {
     }
 
     public String getName() {
@@ -76,5 +58,13 @@ public class CharityModel {
 
     public void setPincode(String pincode) {
         this.pincode = pincode;
+    }
+
+    public String getUpi() {
+        return upi;
+    }
+
+    public void setUpi(String upi) {
+        this.upi = upi;
     }
 }

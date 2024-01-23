@@ -3,6 +3,7 @@ package com.example.yogdaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
@@ -26,9 +27,11 @@ import java.util.Map;
 public class Organisationdetails extends AppCompatActivity {
     Spinner spinner;
     String[] category;
-    EditText name , orgmbo , orgaddress,orgpincode , orgemail;
+    EditText name , orgmbo , orgaddress,orgpincode , orgemail , orgupi;
     FirebaseFirestore firestore;
     Button proceed;
+    static String passupi;
+
 
 
     @Override
@@ -67,12 +70,14 @@ public class Organisationdetails extends AppCompatActivity {
                     String emal = orgemail.getText().toString();
                     String add = orgaddress.getText().toString();
                     String pc = orgpincode.getText().toString();
-                    orgdetails(n, mbo, emal, add, pc);
+                    String orupi = orgupi.getText().toString();
+                     passupi = orupi;
+                    orgdetails(n, mbo, emal, add, pc , orupi);
                 }
         });
     }
 
-    void orgdetails(String name , String no , String Email , String address , String Pincode  ){
+    void orgdetails(String name , String no , String Email , String address , String Pincode , String UPIID ){
         if(name.isEmpty()){
             Toast.makeText(this, "Please Enter Organization Name", Toast.LENGTH_SHORT).show();
         } else if (no.isEmpty()) {
@@ -83,6 +88,8 @@ public class Organisationdetails extends AppCompatActivity {
             Toast.makeText(this, "Please Enter Organization Address", Toast.LENGTH_SHORT).show();
         } else if (Pincode.isEmpty()) {
             Toast.makeText(this, "Please Enter Organization PinCode", Toast.LENGTH_SHORT).show();
+        } else if (UPIID.isEmpty()) {
+            Toast.makeText(this, "Please Enter UPI ID", Toast.LENGTH_SHORT).show();
         } else {
             Map<String, Object> Category = new HashMap<>();
             Category.put("Name", name);
@@ -91,12 +98,16 @@ public class Organisationdetails extends AppCompatActivity {
             Category.put("Organization Address", address);
             Category.put("Organization Pin Code", Pincode);
             Category.put("Organization Category", spinner.getSelectedItem().toString());
+            Category.put("Organisation UPI ID" , UPIID);
             firestore.collection("Organization Details").document(name).set(Category)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Log.e("6969", "" + name);
                             Toast.makeText(Organisationdetails.this, "Details added", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent();
+                            intent.putExtra("UPI ID" , orgupi.getText());
+                            startActivity(intent);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -119,8 +130,10 @@ public class Organisationdetails extends AppCompatActivity {
     orgpincode = findViewById(R.id.orgpinc);
     orgemail = findViewById(R.id.orgemail);
     spinner= findViewById(R.id.spinner);
+    orgupi = findViewById(R.id.orgupiid);
     category = new String[]{"Food" , "Grocery" , "Blood" , "Toys" , "Books"};
     firestore= FirebaseFirestore.getInstance();
     proceed = findViewById(R.id.proceed);
+
     }
 }

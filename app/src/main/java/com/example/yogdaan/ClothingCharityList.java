@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +31,7 @@ CollectionReference cref;
 FirebaseFirestore firestore;
 Query query;
 Adapter adapter;
+Button paytoorg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,7 @@ Adapter adapter;
             }
         });
         getDetails();
+
 
     }
 
@@ -92,5 +95,7 @@ Adapter adapter;
         arrayList = new ArrayList<>();
         firestore = FirebaseFirestore.getInstance();
         cref = firestore.collection("Organization Details");
+
+
     }
 }
