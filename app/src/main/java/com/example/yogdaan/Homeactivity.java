@@ -7,11 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 public class Homeactivity extends AppCompatActivity {
     CardView clothing , food , grocery , blood , money , books;
     String email;
     Intent intent;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +79,13 @@ public class Homeactivity extends AppCompatActivity {
             }
         });
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+             finish();
+            }
+        });
+
 
     }
 
@@ -86,6 +97,7 @@ public class Homeactivity extends AppCompatActivity {
         blood = findViewById(R.id.bloodcard);
         money = findViewById(R.id.moneycard);
         books = findViewById(R.id.bookcard);
+        imageView=findViewById(R.id.left_icon);
         intent = getIntent();
         email = intent.getStringExtra("Email");
         Log.e("Email" , ""+email);
