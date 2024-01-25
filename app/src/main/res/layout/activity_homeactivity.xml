@@ -16,10 +16,9 @@
         android:orientation="vertical"
         >
 
-        <include layout="@layout/toolbar">
+   <include layout="@layout/toolbar">
 
-        </include>
-
+   </include>
         <TextView
             android:id="@+id/amazonName"
             android:layout_width="match_parent"

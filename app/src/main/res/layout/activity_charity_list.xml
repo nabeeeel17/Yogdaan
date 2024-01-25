@@ -5,16 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".CharityList"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bk">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         style="?actionBarStyle"
         android:id="@+id/toolbar"
-        android:background="#2196F3"
-        app:title="Charity List"/>
+        android:background="#A4C879"
+        app:title="Charity List"
+        />
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/bookrecycleview"/>
+    android:id="@+id/bookrecycleview"
+    android:background="#C4E49E"/>
 </LinearLayout>
