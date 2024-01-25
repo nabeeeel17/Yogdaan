@@ -84,7 +84,7 @@ public class Loginactivity extends AppCompatActivity {
     }
     void checklogin(){
 
-        String email = user.getEmail();
+        //String email = user.getEmail();
         if(currentuser!=null){
             firestore.collection("Users Details").document(currentuser.getEmail().toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
@@ -96,13 +96,14 @@ public class Loginactivity extends AppCompatActivity {
 
                             if (type.equals("Donor")) {
                                 Intent intent = new Intent(Loginactivity.this , Homeactivity.class);
-                                intent.putExtra("Email" , email );
+                                intent.putExtra("Email" , user.getEmail() );
+
                                 Log.e("Email" , ""+email);
                                 startActivity(intent);
-                                //finish();
+                                finish();
                             } else {
                                 startActivity(new Intent(Loginactivity.this, Organisationdetails.class));
-                                //finish();
+                                finish();
 
                             }
                         }
@@ -119,22 +120,26 @@ public class Loginactivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Log.e("6969",""+selected);
+                    if(radioGroup.getCheckedRadioButtonId() == -1){
+                        Toast.makeText(Loginactivity.this, "Please Select Login Type", Toast.LENGTH_SHORT).show();
+                    }
                     if(radioButton1.isChecked()){
                         type = radioButton1.getText().toString();
-                        userdetails(email,pass,type);
-                        Intent intent = new Intent(Loginactivity.this , Homeactivity.class);
+
+                        Intent intent = new Intent(Loginactivity.this , BloodTypeActivity.class);
                         intent.putExtra("Email" , email);
+                        intent.putExtra("Login Type" , "Donor");
                         startActivity(intent);
 
-                       //finish();
+                       finish();
                     } else if (radioButton2.isChecked()) {
                         type= radioButton2.getText().toString();
                         Intent  intent = new Intent(Loginactivity.this , Organisationdetails.class);
                         intent.putExtra("Email" , email);
+                        intent.putExtra("Login Type" , type);
                         startActivity(intent);
 
-                        userdetails(email,pass,type);
-                        //finish();
+                        finish();
 
                     }
                     Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
@@ -165,27 +170,5 @@ public class Loginactivity extends AppCompatActivity {
         user=firebaseAuth.getCurrentUser();
     }
 
-    void userdetails(String emaill, String password, String typeofuser) {
 
-        Map<String, Object> User = new HashMap<>();
-
-        User.put("Name", emaill);
-        User.put("Type of User" ,typeofuser );
-
-        firestore.collection("Users Details").document(emaill.toString())
-                .set(User)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.e("6969", "USer Details Added");
-                        Toast.makeText(Loginactivity.this, "User Added", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.e("6969", "Error writing document", e);
-                    }
-                });
-    }
 }

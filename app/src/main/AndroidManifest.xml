@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Yogdaan"
         tools:targetApi="31">
         <activity
+            android:name=".BloodTypeActivity"
+            android:exported="false" />
+        <activity
             android:name=".MoneyOrgList"
             android:exported="false" />
         <activity

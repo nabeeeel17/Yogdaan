@@ -31,6 +31,7 @@ public class Organisationdetails extends AppCompatActivity {
     FirebaseFirestore firestore;
     Button proceed;
     static String passupi;
+    ArrayList<String> list ;
 
 
 
@@ -51,7 +52,7 @@ public class Organisationdetails extends AppCompatActivity {
 
          }
      });
-        ArrayList<String> list = new ArrayList<>();
+         list = new ArrayList<>();
         list.add("Food");
         list.add("Grocery");
         list.add("Blood");
