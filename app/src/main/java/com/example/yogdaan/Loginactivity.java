@@ -122,27 +122,26 @@ public class Loginactivity extends AppCompatActivity {
                     Log.e("6969",""+selected);
                     if(radioGroup.getCheckedRadioButtonId() == -1){
                         Toast.makeText(Loginactivity.this, "Please Select Login Type", Toast.LENGTH_SHORT).show();
-                    }
-                    if(radioButton1.isChecked()){
+                    } else if (radioButton1.isChecked()){
                         type = radioButton1.getText().toString();
 
-                        Intent intent = new Intent(Loginactivity.this , BloodTypeActivity.class);
+                     Intent intent = new Intent(Loginactivity.this , UserDetails.class);
                         intent.putExtra("Email" , email);
                         intent.putExtra("Login Type" , "Donor");
                         startActivity(intent);
+                        Toast.makeText(Loginactivity.this, type+" Login Successful", Toast.LENGTH_SHORT).show();
 
-                       finish();
+                        finish();
                     } else if (radioButton2.isChecked()) {
                         type= radioButton2.getText().toString();
                         Intent  intent = new Intent(Loginactivity.this , Organisationdetails.class);
                         intent.putExtra("Email" , email);
                         intent.putExtra("Login Type" , type);
                         startActivity(intent);
-
+                        Toast.makeText(Loginactivity.this, type+" Login Successful", Toast.LENGTH_SHORT).show();
                         finish();
-
                     }
-                    Toast.makeText(Loginactivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+
                 }
                 else {
                     Toast.makeText(Loginactivity.this, "Please Enter Valid Email And Password", Toast.LENGTH_SHORT).show();
