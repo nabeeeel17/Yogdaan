@@ -84,7 +84,7 @@ public class Loginactivity extends AppCompatActivity {
     }
     void checklogin(){
 
-        String email = user.getEmail();
+        //String email = user.getEmail();
         if(currentuser!=null){
             firestore.collection("Users Details").document(currentuser.getEmail().toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
@@ -96,7 +96,7 @@ public class Loginactivity extends AppCompatActivity {
 
                             if (type.equals("Donor")) {
                                 Intent intent = new Intent(Loginactivity.this , Homeactivity.class);
-                                intent.putExtra("Email" , email );
+                                //intent.putExtra("Email" , email );
                                 Log.e("Email" , ""+email);
                                 startActivity(intent);
                                 //finish();
