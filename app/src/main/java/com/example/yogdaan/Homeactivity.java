@@ -125,7 +125,8 @@ public class Homeactivity extends AppCompatActivity {
             finish();
         }
         else {
-            Toast.makeText(this, "profile", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Exitted", Toast.LENGTH_SHORT).show();
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

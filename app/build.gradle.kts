@@ -5,6 +5,8 @@ plugins {
     id("com.google.gms.google-services")
 }
 
+
+
 android {
     namespace = "com.example.yogdaan"
     compileSdk = 34
@@ -39,11 +41,16 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-firestore:24.10.1")
     implementation("com.google.firebase:firebase-auth:22.3.1")
-    implementation("dev.shreyaspatil.EasyUpiPayment:EasyUpiPayment:3.0.3")
+
+    implementation("com.razorpay:checkout:1.6.36")
+
+
+
     testImplementation("junit:junit:4.13.2")
 
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
+
 
 

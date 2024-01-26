@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserDetails"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar"
+        android:layout_height="50dp"
+        android:layout_width="match_parent"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/img_1"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="100dp"
+        />
+
+    <EditText
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter the Name"
+        android:inputType="textPersonName"
+        android:id="@+id/username"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter email"
+        android:id="@+id/emailid"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Phone no"
+        android:id="@+id/userphone"
+        android:inputType="phone"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/spinneruserbloodtype"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textSize="20dp"
+        android:id="@+id/submitbutton"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
