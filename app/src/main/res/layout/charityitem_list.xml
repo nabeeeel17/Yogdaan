@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="7dp">
@@ -7,19 +8,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="5dp"
-        android:background="#9D9A9A">
+        >
+        <include layout="@layout/toolbar" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="org name"
+            android:text="Organization Name"
             android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:background="@drawable/border"
             android:id="@+id/orgnameitem"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Org Address"
+            android:text="Organization Address"
             android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="1dp"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/border"
             android:id="@+id/orgaddress"/>
 
 
