@@ -45,6 +45,9 @@ String Email;
             }
         });
 
+
+
+
         //  setAdapter();
         getDetails();
 
@@ -100,8 +103,10 @@ String Email;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+
     public void init(){
-        toolbar= findViewById(R.id.toolbar);
+        toolbar=findViewById(R.id.bookstoolbar);
         recyclerView = findViewById(R.id.bookrecycleview);
         arrayList = new ArrayList<>();
         firestore = FirebaseFirestore.getInstance();
