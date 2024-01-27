@@ -12,8 +12,9 @@
         android:layout_height="?actionBarSize"
         style="?actionBarStyle"
         android:id="@+id/clothingtoolbar"
-        android:background="#2196F3"
+        android:background="@color/Pista"
         app:title="Charity List"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

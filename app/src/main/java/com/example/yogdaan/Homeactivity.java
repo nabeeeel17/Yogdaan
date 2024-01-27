@@ -28,18 +28,14 @@ public class Homeactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homeactivity);
-
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        if (getSupportActionBar()!=null) {
-
-            toolbar.setTitle("my toolbar");
-
-        }
         init();
-
+        setToolbar();
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         books.setOnClickListener(new View.OnClickListener() {
@@ -96,45 +92,16 @@ public class Homeactivity extends AppCompatActivity {
             }
         });
 
-
-
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        new MenuInflater(this).inflate(R.menu.toolbaritems, menu);
-        return super.onCreateOptionsMenu(menu);
+    public void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int itemId = item.getItemId();
-
-        if (itemId == R.id.opthome) {
-            Toast.makeText(this, "Already on the homepage", Toast.LENGTH_SHORT).show();
-
-            return super.onOptionsItemSelected(item);
-        }else if (itemId==R.id.opthelp){
-            Toast.makeText(this, "Help", Toast.LENGTH_SHORT).show();
-        }
-        else if(itemId==R.id.optlogout) {
-            Intent intent7=new Intent(Homeactivity.this,Loginactivity.class);
-            firebaseAuth.signOut();
-
-            startActivity(intent7);
-            finish();
-        }
-        else {
-            Toast.makeText(this, "Exitted", Toast.LENGTH_SHORT).show();
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
     void init(){
         clothing = findViewById(R.id.clothingCard);
         food = findViewById(R.id.foodcard);
+        toolbar=findViewById(R.id.hometoolbar);
         grocery = findViewById(R.id.grocerycard);
         blood = findViewById(R.id.bloodcard);
         money = findViewById(R.id.moneycard);

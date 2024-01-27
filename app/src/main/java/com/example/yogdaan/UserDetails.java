@@ -2,6 +2,7 @@ package com.example.yogdaan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ import java.util.Map;
 public class UserDetails extends AppCompatActivity {
     ArrayList<String> list ;
     Spinner spinner;
+    Toolbar toolbar;
     Button submit;
     EditText username  , userphoneno;
     FirebaseFirestore firestore;
@@ -34,6 +36,14 @@ public class UserDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
         init();
+        setToolbar();
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -97,8 +107,13 @@ public class UserDetails extends AppCompatActivity {
                         }
                     });
         }
+    public void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
         public void init(){
             username = findViewById(R.id.username);
+            toolbar=findViewById(R.id.userdetail);
             //useremail = findViewById(R.id.emailid);
             userphoneno = findViewById(R.id.userphone);
             firestore = FirebaseFirestore.getInstance();
