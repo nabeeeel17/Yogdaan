@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -69,9 +70,12 @@ public class Signinactivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    userdetails();
+
+
+                   userdetails();
                     Toast.makeText(Signinactivity.this, "Registration Successful ", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Signinactivity.this,Loginactivity.class));
+
 
                 }
                 else{
@@ -95,7 +99,7 @@ public class Signinactivity extends AppCompatActivity {
         Map<String , Object>User = new HashMap<>();
         User.put("Name" ,email.getText().toString());
 
-        firestore.collection("Users Details").document(email.getText().toString())
+        firestore.collection("Users Registration Details").document(email.getText().toString())
                 .set(User)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

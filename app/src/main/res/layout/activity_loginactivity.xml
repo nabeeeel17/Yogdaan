@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:hint="Email"
-
             android:drawablePadding="10dp"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
