@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FoodCategoryList"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        style="?actionBarStyle"
+        android:id="@+id/foodcategorytoolbar"
+        android:background="@color/Pista"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/food"
+        android:layout_marginLeft="5dp"
+        android:text="What do you want to donate"
+        android:textSize="20dp"
+        android:layout_marginTop="70dp"
+        />
+
+    <EditText
+        android:layout_width="200dp"
+        android:id="@+id/food_edittext"
+        android:layout_marginLeft="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="For How Many No of Pepole You Wnat To Donate :"
+        android:id="@+id/noofpeopel"
+        android:textSize="20dp"
+        android:layout_marginTop="160dp"/>
+
+    <EditText
+        android:layout_width="250dp"
+        android:id="@+id/noofpeopel_edittxt"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DONATE"
+        android:textSize="20dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="140dp"/>
+
+
+</RelativeLayout>

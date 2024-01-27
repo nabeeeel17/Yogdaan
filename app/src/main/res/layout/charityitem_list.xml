@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginBottom="7dp">
+    android:layout_marginBottom="7dp"
+    android:background="@drawable/border"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,28 +17,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Organization Name"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="5dp"
-            android:padding="10dp"
-            android:background="@drawable/border"
+            android:padding="5dp"
             android:id="@+id/orgnameitem"/>
 
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Organization Address"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:layout_marginLeft="1dp"
-            android:padding="10dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/border"
+            android:padding="5dp"
             android:id="@+id/orgaddress"/>
 
-
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/img"
+        android:id="@+id/infoicon"
+        />
 
     </LinearLayout>
-
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

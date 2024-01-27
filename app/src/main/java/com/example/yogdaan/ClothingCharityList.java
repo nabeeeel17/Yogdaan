@@ -6,10 +6,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,7 +48,6 @@ Button paytoorg;
             }
         });
         getDetails();
-
 
     }
 
@@ -90,6 +92,7 @@ Button paytoorg;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     public  void init(){
+
         toolbar = findViewById(R.id.clothingtoolbar);
         recyclerView = findViewById(R.id.clothrecycleview);
         arrayList = new ArrayList<>();

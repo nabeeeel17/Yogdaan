@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ClothingCategoryList"
+    android:orientation="vertical"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        style="?actionBarStyle"
+        android:id="@+id/clothingcategorytoolbar"
+        android:background="@color/Pista"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clothingcategorytoolbar"
+        android:textSize="20dp"
+        android:text="Cloths Donating For Which Age :"
+        android:id="@+id/age"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/age_edittext"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cloths For Male :"
+        android:textSize="20dp"
+        android:id="@+id/clothsformale"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="100dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No of Shirts :"
+        android:textSize="20dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/shirtstxt"
+        android:layout_marginTop="140dp"/>
+
+    <EditText
+        android:layout_width="100dp"
+        android:id="@+id/edittext_shirts"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:layout_marginLeft="125dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No of TShirts :"
+        android:textSize="20dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/tshirtstxt"
+        android:layout_marginTop="181dp"/>
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="166dp"
+        android:layout_marginLeft="135dp"
+        android:id="@+id/edittext_tshirt"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No of Jeans :"
+        android:textSize="20dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/jeanstxt"
+        android:layout_marginTop="222dp"/>
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="205dp"
+        android:layout_marginLeft="135dp"
+        android:id="@+id/edittext_jeans"
+        />
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Cothes For Female :"
+         android:id="@+id/clothesforfemale"
+         android:textSize="20dp"
+         android:layout_marginTop="272dp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noofshirtsF"
+        android:text="No of Shirts :"
+        android:textSize="20dp"
+        android:layout_marginTop="312dp"/>
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="299dp"
+        android:layout_marginLeft="125dp"
+        android:id="@+id/edittext_shirtsf"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nooftshirtsF"
+        android:text="No of TShirts :"
+        android:textSize="20dp"
+        android:layout_marginTop="352dp"/>
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="135dp"
+        android:id="@+id/edittext_tshirtsf"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noofjeansF"
+        android:text="No of Jeans :"
+        android:textSize="20dp"
+        android:layout_marginTop="392dp"/>
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="125dp"
+        android:id="@+id/edittext_jeansf"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noofethenicwearF"
+        android:text="No of Ethnic Wears :"
+        android:textSize="20dp"
+        android:layout_marginTop="442dp"/>
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="421dp"
+        android:layout_marginLeft="185dp"
+        android:id="@+id/edittext_ethnicwearf"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Donatebtn"
+        android:text="DONATE"
+        android:textSize="20dp"
+        android:layout_below="@+id/edittext_ethnicwearf"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="150dp"/>
+
+</RelativeLayout>

@@ -121,9 +121,6 @@ public class UserDetails extends AppCompatActivity {
             logintype = getIntent().getStringExtra("Login Type");
             submit = findViewById(R.id.submitbutton);
 
-
-
-
             list = new ArrayList<>();
             list.add("Please Select Your Blood Type");
             list.add("A+");
