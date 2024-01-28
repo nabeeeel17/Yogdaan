@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Yogdaan"
         tools:targetApi="31">
         <activity
+            android:name=".HelpDonorActivity"
+            android:exported="false" />
+        <activity
             android:name=".BooksCategoryList"
             android:exported="false" />
         <activity

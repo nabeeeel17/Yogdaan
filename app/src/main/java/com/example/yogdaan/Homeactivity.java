@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Homeactivity extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class Homeactivity extends AppCompatActivity {
     String email;
     Intent intent;
     Toolbar toolbar;
+    BottomNavigationView bottomNavigationView;
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -37,6 +39,27 @@ public class Homeactivity extends AppCompatActivity {
             }
         });
 
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id=item.getItemId();
+
+                if (id==R.id.opthelp){
+                    Intent ihelp=new Intent(Homeactivity.this,HelpDonorActivity.class);
+                    startActivity(ihelp);
+                }else if (id==R.id.optlogout){
+                    Intent ilogout=new Intent(Homeactivity.this,Loginactivity.class);
+                    startActivity(ilogout);
+
+                } else  {
+                    Intent iprofile=new Intent(Homeactivity.this,UserDetails.class);
+                    startActivity(iprofile);
+                }
+
+                return false;
+            }
+        });
+        bottomNavigationView.setSelectedItemId(R.id.opthome);
 
         books.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +129,7 @@ public class Homeactivity extends AppCompatActivity {
         blood = findViewById(R.id.bloodcard);
         money = findViewById(R.id.moneycard);
         books = findViewById(R.id.bookcard);
+        bottomNavigationView=findViewById(R.id.bottomnavview);
         firebaseAuth=FirebaseAuth.getInstance();
         intent = getIntent();
         email = intent.getStringExtra("Email");
