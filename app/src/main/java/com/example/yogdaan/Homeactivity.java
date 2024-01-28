@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -40,10 +41,11 @@ public class Homeactivity extends AppCompatActivity {
     Toolbar toolbar;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
-    ImageView imageView;
+
     FirebaseFirestore firestore;
     String uri ;
     Query query;
+    Button profile;
     CollectionReference collectionReference , collectionReference2;
     DocumentReference documentReference;
 
@@ -51,19 +53,21 @@ public class Homeactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homeactivity);
-
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        if (getSupportActionBar()!=null) {
-
-            toolbar.setTitle("my toolbar");
-
-        }
         init();
-
-
+        setToolbar();
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Homeactivity.this, UserProfile.class)
+                        .putExtra("Email" , email));
+            }
+        });
 
         books.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,30 +123,16 @@ public class Homeactivity extends AppCompatActivity {
             }
         });
 
-       seturi();
 
     }
 
-    private void seturi() {
-        firestore.collection("Users Details").document(email.toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-               Log.e("tagggggg" , ""+task.getResult());
-               String base64 = task.getResult().getString("uri");
-               //Log.e("taggg" , ""+uri);
-                byte[] decodedstr = Base64.decode(base64 , Base64.DEFAULT);
-                Bitmap bitmap = byteArrayToBitmap(decodedstr);
-                imageView.setImageBitmap(bitmap);
-
-            }
-        });
-
+    public void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
-    public Bitmap byteArrayToBitmap(byte[] byteArray) {
-        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -177,6 +167,7 @@ public class Homeactivity extends AppCompatActivity {
 
 
     void init(){
+        toolbar = findViewById(R.id.hometoolbar);
         clothing = findViewById(R.id.clothingCard);
         food = findViewById(R.id.foodcard);
         grocery = findViewById(R.id.grocerycard);
@@ -186,11 +177,12 @@ public class Homeactivity extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         intent = getIntent();
+        profile = findViewById(R.id.profilebutton);
         email = intent.getStringExtra("Email");
         Log.e("Email" , ""+email);
         uri = getIntent().getStringExtra("uri");
         Log.e("uri" , ""+uri);
-        imageView = findViewById(R.id.userprofilepic);
+
         firestore= FirebaseFirestore.getInstance();
         collectionReference = firestore.collection("Users Details");
     documentReference = collectionReference.document(email);

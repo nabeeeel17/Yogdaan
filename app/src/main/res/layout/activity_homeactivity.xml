@@ -9,21 +9,29 @@
     >
 
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/constraintLayout"
         android:orientation="vertical"
         >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            style="?actionBarStyle"
+            android:id="@+id/hometoolbar"
+            android:background="@color/Pista"
+            app:title="Home Page"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="profile"
+            android:id="@+id/profilebutton"/>
 
-   <include layout="@layout/toolbar">
 
-   </include>
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:id="@+id/userprofilepic"
-            android:src="@drawable/profile1"/>
+
+
         <TextView
             android:id="@+id/amazonName"
             android:layout_width="match_parent"

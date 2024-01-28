@@ -7,7 +7,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -46,6 +48,7 @@ public class Loginactivity extends AppCompatActivity {
     TextView sign;
     RadioGroup radioGroup;
     RadioButton radioButton1, radioButton2;
+    SharedPreferences preferences ;
 
 
 
@@ -135,11 +138,19 @@ public class Loginactivity extends AppCompatActivity {
                             Toast.makeText(Loginactivity.this, "Please Select Login Type", Toast.LENGTH_SHORT).show();
                         } else if (radioButton1.isChecked()) {
                             type = radioButton1.getText().toString();
+                            Boolean check = preferences.getBoolean("s" , true);
+                            Intent intent;
+                            if(check){
+                                intent = new Intent(Loginactivity.this, UserDetails.class);
+                                intent.putExtra("Email", email);
+                                intent.putExtra("Login Type", "Donor");
 
-
-                            Intent intent = new Intent(Loginactivity.this, UserDetails.class);
-                            intent.putExtra("Email", email);
-                            intent.putExtra("Login Type", "Donor");
+                            }
+                            else {
+                                intent = new Intent(Loginactivity.this, Homeactivity.class);
+                                intent.putExtra("Email", email);
+                                intent.putExtra("Login Type", "Donor");
+                            }
 
                             startActivity(intent);
                             Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
@@ -179,6 +190,8 @@ public class Loginactivity extends AppCompatActivity {
             selected = radioGroup.getCheckedRadioButtonId();
             firebaseAuth = FirebaseAuth.getInstance();
             user = firebaseAuth.getCurrentUser();
+            preferences = getSharedPreferences("flag" , MODE_PRIVATE);
+
         }
 
 

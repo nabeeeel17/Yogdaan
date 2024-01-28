@@ -4,8 +4,10 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -46,6 +48,7 @@ import java.util.Map;
 public class UserDetails extends AppCompatActivity {
     ArrayList<String> list ;
     Spinner spinner;
+    Toolbar toolbar;
     private final int GALLERY_REQ_CODE = 100;
     Button submit;
     FloatingActionButton edit;
@@ -58,12 +61,20 @@ public class UserDetails extends AppCompatActivity {
     CollectionReference cref;
     String encode;
     Uri newuri;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
         init();
+        setToolbar();
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -107,6 +118,9 @@ public class UserDetails extends AppCompatActivity {
 
 
         }
+    public void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);}
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(resultCode==RESULT_OK){
@@ -131,6 +145,7 @@ public class UserDetails extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
     }
+
 
 
 
@@ -176,6 +191,7 @@ public class UserDetails extends AppCompatActivity {
     }
 
     public void init(){
+        toolbar = findViewById(R.id.userdetail);
             edit = findViewById(R.id.editpic);
             auth = FirebaseAuth.getInstance();
             username = findViewById(R.id.username);
@@ -188,7 +204,10 @@ public class UserDetails extends AppCompatActivity {
             spinner = findViewById(R.id.spinneruserbloodtype);
             logintype = getIntent().getStringExtra("Login Type");
             submit = findViewById(R.id.submitbutton);
-
+            preferences = getSharedPreferences("s" , MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("flag" , false);
+            editor.apply();
            emailedittext.setText(useremail);
 
             list = new ArrayList<>();
