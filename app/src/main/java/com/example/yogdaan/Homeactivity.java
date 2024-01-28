@@ -1,38 +1,27 @@
 package com.example.yogdaan;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.squareup.picasso.Picasso;
 
 public class Homeactivity extends AppCompatActivity {
     CardView clothing , food , grocery , blood , money , books;
@@ -41,11 +30,10 @@ public class Homeactivity extends AppCompatActivity {
     Toolbar toolbar;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
-
+    BottomNavigationView bottomNavigationView;
     FirebaseFirestore firestore;
     String uri ;
     Query query;
-    Button profile;
     CollectionReference collectionReference , collectionReference2;
     DocumentReference documentReference;
 
@@ -55,19 +43,41 @@ public class Homeactivity extends AppCompatActivity {
         setContentView(R.layout.activity_homeactivity);
         init();
         setToolbar();
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int id=item.getItemId();
+
+               if(id==R.id.opthelp){
+                   Intent ihelp=new Intent(Homeactivity.this,HelpDonorActivity.class);
+                   startActivity(ihelp);
+               } else if (id==R.id.optlogout) {
+                   Intent ilogout=new Intent(Homeactivity.this,Loginactivity.class);
+                   startActivity(ilogout);
+
+               }
+               else if (id==R.id.optprofile){
+                   Intent iprofile=new Intent(Homeactivity.this,UserProfile.class);
+                   iprofile.putExtra("Email",email);
+                   startActivity(iprofile);
+
+               }
+               else {
+                   Toast.makeText(Homeactivity.this, "Already on Home Page", Toast.LENGTH_SHORT).show();
+               }
+                return false;
+            }
+        });
+        bottomNavigationView.setSelectedItemId(R.id.opthome);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Homeactivity.this, UserProfile.class)
-                        .putExtra("Email" , email));
-            }
-        });
+
 
         books.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,40 +142,6 @@ public class Homeactivity extends AppCompatActivity {
 
     }
 
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        new MenuInflater(this).inflate(R.menu.toolbaritems, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int itemId = item.getItemId();
-
-        if (itemId == R.id.opthome) {
-            Toast.makeText(this, "Already on the homepage", Toast.LENGTH_SHORT).show();
-
-            return super.onOptionsItemSelected(item);
-        }else if (itemId==R.id.opthelp){
-            Toast.makeText(this, "Help", Toast.LENGTH_SHORT).show();
-        }
-        else if(itemId==R.id.optlogout) {
-            Intent intent7=new Intent(Homeactivity.this,Loginactivity.class);
-            firebaseAuth.signOut();
-
-            startActivity(intent7);
-            finish();
-        }
-        else {
-            Toast.makeText(this, "Exitted", Toast.LENGTH_SHORT).show();
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
     void init(){
         toolbar = findViewById(R.id.hometoolbar);
         clothing = findViewById(R.id.clothingCard);
@@ -174,10 +150,10 @@ public class Homeactivity extends AppCompatActivity {
         blood = findViewById(R.id.bloodcard);
         money = findViewById(R.id.moneycard);
         books = findViewById(R.id.bookcard);
+        bottomNavigationView=findViewById(R.id.bottomnav);
         firebaseAuth=FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         intent = getIntent();
-        profile = findViewById(R.id.profilebutton);
         email = intent.getStringExtra("Email");
         Log.e("Email" , ""+email);
         uri = getIntent().getStringExtra("uri");
