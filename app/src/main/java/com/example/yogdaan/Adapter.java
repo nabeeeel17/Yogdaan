@@ -44,13 +44,25 @@ Context context;
      holder.donate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context , BloodCategoryList.class);
-                intent.putExtra("Blood Group" , holder.bg);
-                intent.putExtra("Org Name" ,holder.orgname2);
-                intent.putExtra("Category" , arrayList.get(position).getCategory());
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                Log.e("bg" , ""+holder.bg);
-                context.startActivity(intent);
+                if(arrayList.get(position).getCategory().equals("Blood")) {
+                    Intent intent = new Intent(context, BloodCategoryList.class);
+                    intent.putExtra("Blood Group", holder.bg);
+                    intent.putExtra("Org Name", holder.orgname2);
+                    intent.putExtra("Category", arrayList.get(position).getCategory());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Log.e("bg", "" + holder.bg);
+                    context.startActivity(intent);
+                }
+
+                if (arrayList.get(position).getCategory().equals("Clothes")){
+                    Intent intent = new Intent(context , ClothingCategoryList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("Org Name", holder.orgname2);
+                    intent.putExtra("Category", arrayList.get(position).getCategory());
+                    context.startActivity(intent);
+                }
+
+
             }
         });
 
