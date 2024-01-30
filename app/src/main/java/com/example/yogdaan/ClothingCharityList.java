@@ -63,7 +63,8 @@ Button paytoorg;
                         Log.e("tag", document.getId() + " => " + document.getData());
                         cm.setName(document.getString("Name"));
                         cm.setAddress(document.getString("Organization Address"));
-                        Log.e("org name" ,""+document.getString("Name"));
+                        cm.setCategory(document.getString("Organization Category"));
+                        Log.e("org name" ,""+document.getString("Organization Category"));
                         arrayList.add(cm);
 
                         //setting up adapter

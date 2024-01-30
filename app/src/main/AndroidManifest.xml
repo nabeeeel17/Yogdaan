@@ -60,6 +60,9 @@
             android:name=".ClothingCharityList"
             android:exported="false" />
         <activity
+            android:name=".ClothingCategoryList"
+            android:exported="false" />
+        <activity
             android:name=".CharityList"
             android:exported="false" />
         <activity

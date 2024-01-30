@@ -17,21 +17,24 @@
         android:background="@color/Pista"
         />
 
+
     <TextView
+        android:id="@+id/age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/clothingcategorytoolbar"
-        android:textSize="20dp"
-        android:text="Cloths Donating For Which Age :"
-        android:id="@+id/age"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/clothingcategorytoolbar"
+        android:text="Cloths Donating For Which Age :"
+        android:textSize="20dp"
+        android:layout_weight="1"/>
 
     <EditText
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
         android:layout_marginTop="50dp"
+        android:layout_weight="1"
         android:id="@+id/age_edittext"/>
 
     <TextView
@@ -39,6 +42,7 @@
         android:layout_height="wrap_content"
         android:text="Cloths For Male :"
         android:textSize="20dp"
+        android:textStyle="bold"
         android:id="@+id/clothsformale"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="100dp"
@@ -98,6 +102,7 @@
          android:layout_height="wrap_content"
          android:text="Cothes For Female :"
          android:id="@+id/clothesforfemale"
+         android:textStyle="bold"
          android:textSize="20dp"
          android:layout_marginTop="272dp"
          />
@@ -160,17 +165,16 @@
         android:layout_marginTop="442dp"/>
 
     <EditText
+        android:id="@+id/edittext_ethnicwearf"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="421dp"
         android:layout_marginLeft="185dp"
-        android:id="@+id/edittext_ethnicwearf"
-        />
+        android:layout_marginTop="421dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Donatebtn"
+        android:id="@+id/cDonatebtn"
         android:text="DONATE"
         android:textSize="20dp"
         android:layout_below="@+id/edittext_ethnicwearf"
