@@ -1,13 +1,18 @@
 package com.example.yogdaan;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -25,13 +30,31 @@ Context context;
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View view = (View) LayoutInflater.from(context).inflate(R.layout.charityitem_list, parent, false);
+
+
        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
      holder.name.setText("Name : "+arrayList.get(position).getName());
+     holder.orgname2 = arrayList.get(position).getName();
      holder.address.setText("Address : " +arrayList.get(position).getAddress());
+     holder.bg = arrayList.get(position).getBloodgroup();
+     holder.donate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context , BloodCategoryList.class);
+                intent.putExtra("Blood Group" , holder.bg);
+                intent.putExtra("Org Name" ,holder.orgname2);
+                intent.putExtra("Category" , arrayList.get(position).getCategory());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Log.e("bg" , ""+holder.bg);
+                context.startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
@@ -40,11 +63,16 @@ Context context;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView name, address;
+        TextView name, address ;
+        Button donate;
+        String bg , orgname2;
+
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.orgnameitem);
             address = itemView.findViewById(R.id.orgaddress);
+            donate = itemView.findViewById(R.id.Donate);
 
         }
     }

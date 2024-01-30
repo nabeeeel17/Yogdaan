@@ -44,6 +44,7 @@ public class Homeactivity extends AppCompatActivity {
         init();
         setToolbar();
 
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -54,8 +55,10 @@ public class Homeactivity extends AppCompatActivity {
                    Intent ihelp=new Intent(Homeactivity.this,HelpDonorActivity.class);
                    startActivity(ihelp);
                } else if (id==R.id.optlogout) {
+                   firebaseAuth.signOut();
                    Intent ilogout=new Intent(Homeactivity.this,Loginactivity.class);
                    startActivity(ilogout);
+
 
                }
                else if (id==R.id.optprofile){
@@ -102,6 +105,7 @@ public class Homeactivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent3 = new Intent(Homeactivity.this , BloodCharityList.class);
                 intent3.putExtra("Email" , email);
+                intent3.putExtra("Category" , "Blood");
                 startActivity(intent3);
             }
         });
@@ -154,7 +158,7 @@ public class Homeactivity extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         intent = getIntent();
-        email = intent.getStringExtra("Email");
+        email = user.getEmail();
         Log.e("Email" , ""+email);
         uri = getIntent().getStringExtra("uri");
         Log.e("uri" , ""+uri);

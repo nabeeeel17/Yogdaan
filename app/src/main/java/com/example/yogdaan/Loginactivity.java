@@ -140,19 +140,12 @@ public class Loginactivity extends AppCompatActivity {
                             type = radioButton1.getText().toString();
                             Boolean check = preferences.getBoolean("s" , true);
                             Intent intent;
-                            if(check){
+
+
                                 intent = new Intent(Loginactivity.this, UserDetails.class);
                                 intent.putExtra("Email", email);
                                 intent.putExtra("Login Type", "Donor");
-
-                            }
-                            else {
-                                intent = new Intent(Loginactivity.this, Homeactivity.class);
-                                intent.putExtra("Email", email);
-                                intent.putExtra("Login Type", "Donor");
-                            }
-
-                            startActivity(intent);
+                                startActivity(intent);
                             Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
 
                             finish();

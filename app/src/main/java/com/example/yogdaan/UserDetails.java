@@ -205,9 +205,6 @@ public class UserDetails extends AppCompatActivity {
             logintype = getIntent().getStringExtra("Login Type");
             submit = findViewById(R.id.submitbutton);
             preferences = getSharedPreferences("s" , MODE_PRIVATE);
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("flag" , false);
-            editor.apply();
            emailedittext.setText(useremail);
 
             list = new ArrayList<>();

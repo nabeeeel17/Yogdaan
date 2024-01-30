@@ -53,6 +53,9 @@
         <activity
             android:name=".BloodCharityList"
             android:exported="false" />
+        <activity android:name="com.example.yogdaan.BloodCategoryList"
+            android:exported="false"/>
+
         <activity
             android:name=".ClothingCharityList"
             android:exported="false" />

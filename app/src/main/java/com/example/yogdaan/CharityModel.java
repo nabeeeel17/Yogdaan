@@ -5,9 +5,19 @@ public class CharityModel {
     String address;
     String category;
     String email;
+
     String mbo;
-    String pincode;
+    String pincode ;
     String upi;
+    String bloodgroup;
+
+    public String getBloodgroup() {
+        return bloodgroup;
+    }
+
+    public void setBloodgroup(String bloodgroup) {
+        this.bloodgroup = bloodgroup;
+    }
 
     public String getUpi() {
         return upi;
