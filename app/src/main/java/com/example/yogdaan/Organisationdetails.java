@@ -106,7 +106,7 @@ public class Organisationdetails extends AppCompatActivity {
                         public void onSuccess(Void unused) {
                             Log.e("6969", "" + name);
                             Toast.makeText(Organisationdetails.this, "Details added", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent();
+                            Intent intent = new Intent(Organisationdetails.this,OrganizationDashboard.class);
                             intent.putExtra("UPI ID" , orgupi.getText());
                             startActivity(intent);
                         }
