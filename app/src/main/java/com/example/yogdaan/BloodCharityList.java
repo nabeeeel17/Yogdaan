@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -28,10 +30,13 @@ public class BloodCharityList extends AppCompatActivity {
     Adapter adapter;
     Toolbar toolbar;
     ArrayList<CharityModel> arrayList;
-    CollectionReference cref;
+    CollectionReference cref , cref2;
     FirebaseFirestore firestore;
+    DocumentReference documentReference;
+    String Category;
     Query query;
-    String Email;
+    String Email , orgname;
+    String BloodGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +69,10 @@ public class BloodCharityList extends AppCompatActivity {
                         Log.e("tag", document.getId() + " => " + document.getData());
                         cm.setName(document.getString("Name"));
                         cm.setAddress(document.getString("Organization Address"));
+                        cm.setBloodgroup(BloodGroup);
+
                         Log.e("org name" ,""+document.getString("Name"));
+                        cm.setCategory(document.getString("Organization Category"));
                         arrayList.add(cm);
 
                         //setting up adapter
@@ -93,8 +101,19 @@ public class BloodCharityList extends AppCompatActivity {
         arrayList = new ArrayList<>();
         firestore = FirebaseFirestore.getInstance();
         cref = firestore.collection("Organization Details");
+        cref2 = firestore.collection("Users Details");
         Intent intent = getIntent();
         Email = intent.getStringExtra("Email");
+        Category = intent.getStringExtra("Category");
+        Log.e("cat" , ""+Category);
+
+        cref2.document(Email).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                BloodGroup  = task.getResult().getString("Blood Type");
+            }
+        });
+
     }
 
 }

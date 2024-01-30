@@ -44,12 +44,11 @@
             android:padding="5dp"
             android:id="@+id/orgaddress"/>
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/img"
-        android:id="@+id/infoicon"
-        />
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Donate"
+       android:id="@+id/Donate"/>
 
     </LinearLayout>
     </LinearLayout>
