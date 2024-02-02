@@ -24,6 +24,9 @@
         android:theme="@style/Theme.Yogdaan"
         tools:targetApi="31">
         <activity
+            android:name=".SplashScreen"
+            android:exported="false" />
+        <activity
             android:name=".OrganizationDashboard"
             android:exported="false" />
         <activity
@@ -53,9 +56,9 @@
         <activity
             android:name=".BloodCharityList"
             android:exported="false" />
-        <activity android:name="com.example.yogdaan.BloodCategoryList"
-            android:exported="false"/>
-
+        <activity
+            android:name=".BloodCategoryList"
+            android:exported="false" />
         <activity
             android:name=".ClothingCharityList"
             android:exported="false" />
