@@ -62,6 +62,30 @@ Context context;
                     context.startActivity(intent);
                 }
 
+                if (arrayList.get(position).getCategory().equals("Grocery")){
+                    Intent intent = new Intent(context ,GroceryCategoryList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("Org Name", holder.orgname2);
+                    intent.putExtra("Category", arrayList.get(position).getCategory());
+                    context.startActivity(intent);
+                }
+
+                if (arrayList.get(position).getCategory().equals("Food")){
+                    Intent intent = new Intent(context ,FoodCategoryList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("Org Name", holder.orgname2);
+                    intent.putExtra("Category", arrayList.get(position).getCategory());
+                    context.startActivity(intent);
+                }
+
+                if(arrayList.get(position).getCategory().equals("Books")){
+                    Intent intent = new Intent(context , BooksCategoryList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("Org Name", holder.orgname2);
+                    intent.putExtra("Category", arrayList.get(position).getCategory());
+                    context.startActivity(intent);
+                }
+
 
             }
         });

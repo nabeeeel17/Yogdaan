@@ -75,6 +75,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/linear"
         android:layout_below="@+id/edit_weight"
         android:orientation="horizontal">
         <TextView
@@ -94,12 +95,29 @@
     </LinearLayout>
 
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/blooddate"
+        android:hint="Select the date on which you want to donate*"
+        android:layout_below="@+id/linear"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/blooddate"
+        android:id="@+id/bloodselecteddate"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        />
+
+    <Button
         android:id="@+id/Donatebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_weight"
+        android:layout_below="@+id/bloodselecteddate"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="0dp"
         android:text="DONATE"
         android:textSize="15dp" />
 

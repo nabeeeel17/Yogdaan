@@ -31,7 +31,9 @@
         android:id="@+id/food_edittext"
         android:layout_marginLeft="5dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="100dp"
+        android:hint="Eg. Pulav , Dal Rice"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,6 +49,24 @@
         android:id="@+id/noofpeopel_edittxt"
         android:layout_height="wrap_content"
         android:layout_marginTop="210dp"
+        android:inputType="number"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date"
+        android:hint="Select the date on which you want to donate*"
+        android:layout_below="@+id/noofpeopel_edittxt"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:id="@+id/selecteddate"
+       android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="15dp"
         />
 
     <Button
@@ -54,7 +74,8 @@
         android:layout_height="wrap_content"
         android:text="DONATE"
         android:textSize="20dp"
-        android:layout_marginTop="270dp"
+        android:id="@+id/fooddonatebutton"
+        android:layout_below="@+id/selecteddate"
         android:layout_marginLeft="140dp"/>
 
 

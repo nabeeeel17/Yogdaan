@@ -59,6 +59,7 @@ public class GroceryCharityList extends AppCompatActivity {
                         CharityModel cm = new CharityModel();
                         Log.e("tag", document.getId() + " => " + document.getData());
                         cm.setName(document.getString("Name"));
+                        cm.setCategory(document.getString("Organization Category"));
                         cm.setAddress(document.getString("Organization Address"));
                         Log.e("org name" ,""+document.getString("Name"));
                         arrayList.add(cm);
