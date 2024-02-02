@@ -45,7 +45,7 @@
 
 
     <EditText
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:hint="Enter the Name"
         android:inputType="textPersonName"
@@ -54,7 +54,7 @@
         android:layout_gravity="center"/>
 
     <EditText
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:hint="Enter email"
         android:id="@+id/emailid"
@@ -63,7 +63,7 @@
         android:layout_gravity="center"/>
 
     <EditText
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:hint="Enter Phone no"
         android:id="@+id/userphone"
@@ -72,9 +72,10 @@
         android:layout_gravity="center"/>
 
     <Spinner
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
+        android:layout_gravity="center"
         android:id="@+id/spinneruserbloodtype"
         />
 

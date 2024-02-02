@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserProfile"
     android:orientation="vertical">
+
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -45,7 +48,7 @@
 
 
     <EditText
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:hint="Enter the Name"
         android:inputType="textPersonName"
@@ -54,7 +57,7 @@
         android:layout_gravity="center"/>
 
     <EditText
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:hint="Enter email"
         android:id="@+id/profileemailid"
@@ -63,7 +66,7 @@
         android:layout_gravity="center"/>
 
     <EditText
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:hint="Enter Phone no"
         android:id="@+id/profileuserphone"
@@ -72,8 +75,9 @@
         android:layout_gravity="center"/>
 
     <Spinner
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="40dp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:id="@+id/profilespinneruserbloodtype"
         />
@@ -88,6 +92,13 @@
         android:layout_gravity="center"/>
 
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnavUser"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="105dp"
+        android:background="@color/Pista"
+        app:menu="@menu/toolbaritems"/>
 
 
 </LinearLayout>

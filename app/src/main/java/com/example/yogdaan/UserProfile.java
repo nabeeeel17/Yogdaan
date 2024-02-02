@@ -10,9 +10,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,6 +27,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -46,12 +49,13 @@ public class UserProfile extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     Toolbar toolbar;
     Button submit;
-
+    String email;
     FloatingActionButton edit;
     EditText username, userphoneno, emailedittext;
     ImageView pic;
     FirebaseUser user;
     FirebaseAuth auth;
+    BottomNavigationView bottomNavigationView;
     CollectionReference cref;
     private final  int GALLERY_REQ_CODE=100;
     DocumentReference documentReference;
@@ -69,6 +73,35 @@ public class UserProfile extends AppCompatActivity {
         init();
         setUser();
         seturi();
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int id=item.getItemId();
+
+                if(id==R.id.opthome){
+                    Intent ihome=new Intent(UserProfile.this,Homeactivity.class);
+                    startActivity(ihome);
+                } else if (id==R.id.opthelp) {
+                    Intent ihelp=new Intent(UserProfile.this,HelpDonorActivity.class);
+                    startActivity(ihelp);
+                }
+                else if (id==R.id.optlogout){
+                    Intent ilogout=new Intent(UserProfile.this,Loginactivity.class);
+                    ilogout.putExtra("Email",email);
+                    auth.signOut();
+                    startActivity(ilogout);
+
+                }
+                else {
+                    Toast.makeText(UserProfile.this, "Already on User Profile", Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+        });
+        bottomNavigationView.setSelectedItemId(R.id.optprofile);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -228,8 +261,9 @@ public class UserProfile extends AppCompatActivity {
             edit = findViewById(R.id.usereditpic);
             auth = FirebaseAuth.getInstance();
             username = findViewById(R.id.profileusername);
-
+            bottomNavigationView=findViewById(R.id.bottomnavUser);
             pic = findViewById(R.id.profilepic1);
+            user=auth.getCurrentUser();
             useremail = getIntent().getStringExtra("Email");
             emailedittext = findViewById(R.id.profileemailid);
             cref = FirebaseFirestore.getInstance().collection("Users Details");
@@ -256,10 +290,8 @@ public class UserProfile extends AppCompatActivity {
 
             }
         });
-
-
         list = new ArrayList<>();
-            list.add("Please Select Your Blood Type");
+        list.add("Please Select Your Blood Type");
             list.add("A+");
             list.add("A-");
             list.add("B+");
