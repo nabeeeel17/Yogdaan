@@ -79,6 +79,7 @@ String Email;
                         Log.e("tag", document.getId() + " => " + document.getData());
                        cm.setName(document.getString("Name"));
                        cm.setAddress(document.getString("Organization Address"));
+                       cm.setCategory(document.getString("Organization Category"));
                         Log.e("org name" ,""+document.getString("Name"));
                         arrayList.add(cm);
 

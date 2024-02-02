@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +12,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,37 +30,66 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class BloodCategoryList extends AppCompatActivity {
     String doncategory , email, orgname;
     Spinner spinner;
+    TextView selecteddate;
+    Calendar calendar;
+    int year , month , day;
     ArrayAdapter<String> adapter;
     ArrayList<String> list;
     FirebaseFirestore firestore;
-    String donorname , bg , donoremail , donorphone;
+    String donorname , bg , donoremail , donorphone , sdate;
     CollectionReference cref;
     DocumentReference dref;
     FirebaseUser user;
 EditText medicalh , hft , wkg;
-Button donate ;
+Button donate , date ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blood_category);
         init();
+
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calendar = Calendar.getInstance();
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.DAY_OF_MONTH);
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePickerDialog =new DatePickerDialog(BloodCategoryList.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+                        sdate =day+"-"+(month+1)+"-"+year;
+                        selecteddate.setText("Selected Date : "+sdate);
+                    }
+                },year,month , day);
+                datePickerDialog.show();
+
+
+            }
+        });
         donate.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 if(hft.getText().toString().isEmpty()){
-                    Toast.makeText(BloodCategoryList.this, "Please Enter Donor Hieght", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BloodCategoryList.this, "Please Enter Donor Height", Toast.LENGTH_SHORT).show();
                 } else if (wkg.getText().toString().isEmpty()) {
                     Toast.makeText(BloodCategoryList.this, "Please Enter Donor Weight", Toast.LENGTH_SHORT).show();
 
+                }
+                else if (sdate == null) {
+                    Toast.makeText(BloodCategoryList.this, "Please select donation date", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     setdonationdetails();
@@ -72,6 +104,7 @@ Button donate ;
         Donation.put("Donor Medical History" , medicalh.getText().toString());
         Donation.put("Donor Height" , hft.getText().toString());
         Donation.put("Donor Weight" , wkg.getText().toString());
+        Donation.put("Donation Date" , selecteddate.getText().toString());
         Donation.put("Donor Blood Group" ,bg);
         Donation.put("Donated to" , orgname);
         Donation.put("Donor Phone No" , donorphone);
@@ -103,6 +136,8 @@ Button donate ;
 
     private void init(){
         medicalh = findViewById(R.id.edtmedicalhistory);
+        date = findViewById(R.id.blooddate);
+        selecteddate = findViewById(R.id.bloodselecteddate);
         hft = findViewById(R.id.Heightinft);
         wkg = findViewById(R.id.edit_weight);
         doncategory= getIntent().getStringExtra("Category");

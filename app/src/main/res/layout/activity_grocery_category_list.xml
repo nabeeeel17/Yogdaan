@@ -31,7 +31,9 @@
         android:layout_marginLeft="5dp"
         android:hint="e.g:Grains,sugar.."
         android:textSize="20dp"
-        android:layout_below="@+id/RawMaterial"/>
+        android:id="@+id/edtrawmaterial"
+        android:layout_below="@+id/RawMaterial"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,14 +50,36 @@
         android:layout_marginLeft="5dp"
         android:hint="In kg's"
         android:textSize="20dp"
-        android:layout_below="@+id/AmountOfRaw"/>
+android:inputType="number"
+        android:id="@+id/edtamountinkg"
+        android:layout_below="@+id/AmountOfRaw"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/grocerydate"
+        android:hint="Select the date on which you want to donate*"
+        android:layout_below="@+id/edtamountinkg"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/grocerydate"
+        android:id="@+id/groceryselecteddate"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DONATE"
+        android:layout_below="@+id/groceryselecteddate"
+        android:id="@+id/donategrocerybtn"
         android:textSize="20dp"
-        android:layout_marginTop="250dp"
+
         android:layout_marginLeft="140dp"/>
 
 </RelativeLayout>
