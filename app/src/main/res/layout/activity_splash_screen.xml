@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         app:lottie_autoPlay="true"
+        android:id="@+id/splash"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/lottie2"/>
 
