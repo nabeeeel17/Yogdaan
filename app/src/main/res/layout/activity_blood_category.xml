@@ -102,6 +102,7 @@
         android:hint="Select the date on which you want to donate*"
         android:layout_below="@+id/linear"
         android:textStyle="bold"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
