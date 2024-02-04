@@ -24,6 +24,9 @@
         android:theme="@style/Theme.Yogdaan"
         tools:targetApi="31">
         <activity
+            android:name=".CLothesDonatedOrg"
+            android:exported="false" />
+        <activity
             android:name=".emergency"
             android:exported="false" />
         <activity
@@ -68,12 +71,15 @@
         <activity
             android:name=".ClothingCategoryList"
             android:exported="false" />
-        <activity android:name=".FoodCategoryList"
-            android:exported="false"/>
-        <activity android:name=".GroceryCategoryList"
-            android:exported="false"/>
-        <activity android:name=".BooksCategoryList"
-            android:exported="false"/>
+        <activity
+            android:name=".FoodCategoryList"
+            android:exported="false" />
+        <activity
+            android:name=".GroceryCategoryList"
+            android:exported="false" />
+        <activity
+            android:name=".BooksCategoryList"
+            android:exported="false" />
         <activity
             android:name=".CharityList"
             android:exported="false" />

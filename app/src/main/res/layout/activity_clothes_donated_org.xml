@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CLothesDonatedOrg"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        style="?actionBarStyle"
+        android:id="@+id/clothesdonated"
+        android:background="@color/Pista"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/clothesdonatedforage"
+            android:text="Cloths Donated For Which Age :"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:layout_width="90dp"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:id="@+id/donatedage_edittext"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cloths Donated For Male :"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:id="@+id/clothsdonatedformale"
+            android:layout_marginLeft="5dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No of Shirts Donated :"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/shirtsdonatedtxt"
+            android:layout_marginTop="8dp"
+            />
+
+        <EditText
+            android:layout_width="170dp"
+            android:id="@+id/edittext_donatedshirts"
+            android:inputType="number"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No of TShirts Donated :"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/tshirtsdonatedtxt"
+            />
+
+        <EditText
+            android:layout_width="170dp"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:id="@+id/edittext_donatedtshirt"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No of Jeans Donated :"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/jeansdonatedtxt"
+            />
+
+        <EditText
+            android:layout_width="170dp"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:id="@+id/edittext_donatedjeans"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cothes Donated For Female :"
+            android:id="@+id/clothesdonatedforfemale"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/noofshirtsdonatedF"
+            android:text="No of Shirts Donated :"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <EditText
+            android:layout_width="170dp"
+            android:inputType="number"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edittext_donatedshirtsf"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nooftshirtsdonatedF"
+            android:text="No of TShirts Donated :"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:layout_width="170dp"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:id="@+id/edittext_tshirtsdonatedf"
+            android:layout_marginLeft="5dp"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/noofjeansdonatedF"
+            android:text="No of Jeans Doanted :"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:layout_width="170dp"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:id="@+id/edittext_jeansdonatedf"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/noofethenicweardonatedF"
+            android:text="No of Ethnic Wears Donated :"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <EditText
+            android:id="@+id/edittext_donatedethnicwearf"
+            android:layout_width="130dp"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
