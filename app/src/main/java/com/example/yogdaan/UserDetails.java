@@ -49,6 +49,7 @@ public class UserDetails extends AppCompatActivity {
     ArrayList<String> list ;
     Spinner spinner;
     Toolbar toolbar;
+    SharedPreferences.Editor editor;
     private final int GALLERY_REQ_CODE = 100;
     Button submit;
     FloatingActionButton edit;
@@ -113,6 +114,8 @@ public class UserDetails extends AppCompatActivity {
                     startActivity(new Intent(UserDetails.this , Homeactivity.class)
                             .putExtra("Email" , useremail)
                             .putExtra("uri" , newuri));
+                    editor.putBoolean("isDetailsSubmitted?" , true ).commit();
+
                 }
             });
 
@@ -192,6 +195,7 @@ public class UserDetails extends AppCompatActivity {
 
     public void init(){
         toolbar = findViewById(R.id.userdetail);
+
             edit = findViewById(R.id.editpic);
             auth = FirebaseAuth.getInstance();
             username = findViewById(R.id.username);
@@ -204,7 +208,9 @@ public class UserDetails extends AppCompatActivity {
             spinner = findViewById(R.id.spinneruserbloodtype);
             logintype = getIntent().getStringExtra("Login Type");
             submit = findViewById(R.id.submitbutton);
-            preferences = getSharedPreferences("s" , MODE_PRIVATE);
+            preferences = getSharedPreferences("state" , MODE_PRIVATE);
+editor = preferences.edit();
+
            emailedittext.setText(useremail);
 
             list = new ArrayList<>();

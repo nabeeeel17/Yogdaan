@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
@@ -30,7 +31,9 @@ public class Organisationdetails extends AppCompatActivity {
     EditText name , orgmbo , orgaddress,orgpincode , orgemail , orgupi;
     FirebaseFirestore firestore;
     Button proceed;
+    SharedPreferences.Editor editor;
     static String passupi;
+    SharedPreferences preferences;
     ArrayList<String> list ;
 
 
@@ -66,32 +69,38 @@ public class Organisationdetails extends AppCompatActivity {
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    String n = name.getText().toString();
-                    String mbo = orgmbo.getText().toString();
-                    String emal = orgemail.getText().toString();
-                    String add = orgaddress.getText().toString();
-                    String pc = orgpincode.getText().toString();
-                    String orupi = orgupi.getText().toString();
-                     passupi = orupi;
-                    orgdetails(n, mbo, emal, add, pc , orupi);
+                String n = name.getText().toString();
+                String mbo = orgmbo.getText().toString();
+                String emal = orgemail.getText().toString();
+                String add = orgaddress.getText().toString();
+                String pc = orgpincode.getText().toString();
+                String orupi = orgupi.getText().toString();
+                passupi = orupi;
+
+                if (n.isEmpty()) {
+                    Toast.makeText(Organisationdetails.this, "Please Enter Organization Name", Toast.LENGTH_SHORT).show();
+                } else if (mbo.isEmpty()) {
+                    Toast.makeText(Organisationdetails.this, "Please Enter Organization Number", Toast.LENGTH_SHORT).show();
+                } else if (emal.isEmpty()) {
+                    Toast.makeText(Organisationdetails.this, "Please Enter Organization Mail", Toast.LENGTH_SHORT).show();
+                } else if (add.isEmpty()) {
+                    Toast.makeText(Organisationdetails.this, "Please Enter Organization Address", Toast.LENGTH_SHORT).show();
+                } else if (pc.isEmpty()) {
+                    Toast.makeText(Organisationdetails.this, "Please Enter Organization PinCode", Toast.LENGTH_SHORT).show();
+                } else if (orupi.isEmpty()) {
+                    Toast.makeText(Organisationdetails.this, "Please Enter UPI ID", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    orgdetails(n, mbo, emal, add, pc, orupi);
+                }
+            }
         });
     }
 
+
     void orgdetails(String name , String no , String Email , String address , String Pincode , String UPIID ){
-        if(name.isEmpty()){
-            Toast.makeText(this, "Please Enter Organization Name", Toast.LENGTH_SHORT).show();
-        } else if (no.isEmpty()) {
-            Toast.makeText(this, "Please Enter Organization Number", Toast.LENGTH_SHORT).show();
-        } else if (Email.isEmpty()) {
-            Toast.makeText(this, "Please Enter Organization Mail", Toast.LENGTH_SHORT).show();
-        } else if (address.isEmpty()) {
-            Toast.makeText(this, "Please Enter Organization Address", Toast.LENGTH_SHORT).show();
-        } else if (Pincode.isEmpty()) {
-            Toast.makeText(this, "Please Enter Organization PinCode", Toast.LENGTH_SHORT).show();
-        } else if (UPIID.isEmpty()) {
-            Toast.makeText(this, "Please Enter UPI ID", Toast.LENGTH_SHORT).show();
-        } else {
+
+
             Map<String, Object> Category = new HashMap<>();
             Category.put("Name", name);
             Category.put("Organization Number", no);
@@ -100,7 +109,7 @@ public class Organisationdetails extends AppCompatActivity {
             Category.put("Organization Pin Code", Pincode);
             Category.put("Organization Category", spinner.getSelectedItem().toString());
             Category.put("Organisation UPI ID" , UPIID);
-            firestore.collection("Organization Details").document(name).set(Category)
+            firestore.collection("Organization Details").document(Email).set(Category)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -109,6 +118,7 @@ public class Organisationdetails extends AppCompatActivity {
                             Intent intent = new Intent(Organisationdetails.this,OrganizationDashboard.class);
                             intent.putExtra("UPI ID" , orgupi.getText());
                             startActivity(intent);
+                            editor.putBoolean("isorgsubmitted" , true).commit();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -120,7 +130,7 @@ public class Organisationdetails extends AppCompatActivity {
         }
 
 
-    }
+
 
 
 
@@ -135,6 +145,9 @@ public class Organisationdetails extends AppCompatActivity {
     category = new String[]{"Food" , "Grocery" , "Blood" , "Toys" , "Books"};
     firestore= FirebaseFirestore.getInstance();
     proceed = findViewById(R.id.proceed);
+    preferences = getSharedPreferences("state" , MODE_PRIVATE);
+    editor = preferences.edit();
+
 
     }
 }

@@ -116,8 +116,8 @@ public class Loginactivity extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 } else {
-                                    startActivity(new Intent(Loginactivity.this, Organisationdetails.class));
-                                    finish();
+                                   startActivity(new Intent(Loginactivity.this, OrganizationDashboard.class));
+                                   finish();
 
                                 }
                             }
@@ -138,25 +138,53 @@ public class Loginactivity extends AppCompatActivity {
                             Toast.makeText(Loginactivity.this, "Please Select Login Type", Toast.LENGTH_SHORT).show();
                         } else if (radioButton1.isChecked()) {
                             type = radioButton1.getText().toString();
-                            Boolean check = preferences.getBoolean("s" , true);
-                            Intent intent;
 
+                            boolean check = preferences.getBoolean("isDetailsSubmitted?", false);
+                            if (!check){
 
+                                Intent intent;
                                 intent = new Intent(Loginactivity.this, UserDetails.class);
                                 intent.putExtra("Email", email);
                                 intent.putExtra("Login Type", "Donor");
                                 startActivity(intent);
-                            Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                            else {
 
-                            finish();
+
+
+                                Intent intent;
+                                intent = new Intent(Loginactivity.this, Homeactivity.class);
+                                intent.putExtra("Email", email);
+                                intent.putExtra("Login Type", "Donor");
+                                startActivity(intent);
+                                Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
+
+                                finish();
+                            }
+
                         } else if (radioButton2.isChecked()) {
-                            type = radioButton2.getText().toString();
-                            Intent intent = new Intent(Loginactivity.this, Organisationdetails.class);
-                            intent.putExtra("Email", email);
-                            intent.putExtra("Login Type", type);
-                            startActivity(intent);
-                            Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
-                            finish();
+                            boolean check2 = preferences.getBoolean("isorgsubmitted" , false);
+                            if (!check2) {
+
+                                type = radioButton2.getText().toString();
+                                Intent intent = new Intent(Loginactivity.this, Organisationdetails.class);
+                                intent.putExtra("Email", email);
+                                intent.putExtra("Login Type", type);
+                                startActivity(intent);
+                                Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                       else {
+                                type = radioButton2.getText().toString();
+                                Intent intent = new Intent(Loginactivity.this, OrganizationDashboard.class);
+                                intent.putExtra("Email", email);
+                                intent.putExtra("Login Type", type);
+                                startActivity(intent);
+                                Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
                         }
 
                     } else {
@@ -183,7 +211,8 @@ public class Loginactivity extends AppCompatActivity {
             selected = radioGroup.getCheckedRadioButtonId();
             firebaseAuth = FirebaseAuth.getInstance();
             user = firebaseAuth.getCurrentUser();
-            preferences = getSharedPreferences("flag" , MODE_PRIVATE);
+            preferences = getSharedPreferences("state" , MODE_PRIVATE);
+
 
         }
 

@@ -24,6 +24,12 @@
         android:theme="@style/Theme.Yogdaan"
         tools:targetApi="31">
         <activity
+            android:name=".emergency"
+            android:exported="false" />
+        <activity
+            android:name=".donreqlist"
+            android:exported="false" />
+        <activity
             android:name=".OrganizationDashboard"
             android:exported="false" />
         <activity
@@ -53,15 +59,21 @@
         <activity
             android:name=".BloodCharityList"
             android:exported="false" />
-        <activity android:name="com.example.yogdaan.BloodCategoryList"
-            android:exported="false"/>
-
+        <activity
+            android:name=".BloodCategoryList"
+            android:exported="false" />
         <activity
             android:name=".ClothingCharityList"
             android:exported="false" />
         <activity
             android:name=".ClothingCategoryList"
             android:exported="false" />
+        <activity android:name=".FoodCategoryList"
+            android:exported="false"/>
+        <activity android:name=".GroceryCategoryList"
+            android:exported="false"/>
+        <activity android:name=".BooksCategoryList"
+            android:exported="false"/>
         <activity
             android:name=".CharityList"
             android:exported="false" />
