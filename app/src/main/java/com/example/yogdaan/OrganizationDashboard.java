@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class OrganizationDashboard extends AppCompatActivity {
 
-    Toolbar toolbar;
+
     String email , logintype , category , orgname;
 
     CardView emergency , donreq;
