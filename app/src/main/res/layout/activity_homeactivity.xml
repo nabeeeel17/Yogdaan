@@ -65,7 +65,6 @@
             android:layout_height="140dp"
             android:id="@+id/clothingCard"
             android:layout_margin="10dp"
-            app:cardElevation="20dp"
             app:cardCornerRadius="20dp">
 
                 <ImageView
@@ -93,7 +92,6 @@
                 android:layout_width="160dp"
                 android:layout_height="140dp"
                 android:layout_margin="10dp"
-                app:cardElevation="20dp"
                 android:id="@+id/foodcard"
                 app:cardCornerRadius="20dp">
 
@@ -134,7 +132,7 @@
             android:layout_height="140dp"
             android:layout_margin="10dp"
             android:id="@+id/bloodcard"
-            app:cardElevation="20dp"
+
             app:cardCornerRadius="20dp">
 
                 <TextView
@@ -163,7 +161,7 @@
             android:layout_width="160dp"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            app:cardElevation="20dp"
+
             android:id="@+id/grocerycard"
             app:cardCornerRadius="20dp">
 
@@ -201,7 +199,7 @@
             android:layout_width="160dp"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            app:cardElevation="20dp"
+
             app:cardCornerRadius="20dp"
             android:id="@+id/moneycard">
 
@@ -230,7 +228,7 @@
             android:layout_width="160dp"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            app:cardElevation="20dp"
+
             app:cardCornerRadius="20dp"
             android:id="@+id/bookcard">
 

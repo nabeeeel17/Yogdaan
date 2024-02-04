@@ -53,10 +53,12 @@ public class Homeactivity extends AppCompatActivity {
 
                if(id==R.id.opthelp){
                    Intent ihelp=new Intent(Homeactivity.this,HelpDonorActivity.class);
+                   ihelp.putExtra("Email",email);
                    startActivity(ihelp);
                } else if (id==R.id.optlogout) {
                    firebaseAuth.signOut();
                    Intent ilogout=new Intent(Homeactivity.this,Loginactivity.class);
+                   ilogout.putExtra("Email",email);
                    startActivity(ilogout);
 
 

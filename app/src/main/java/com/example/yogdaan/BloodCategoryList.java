@@ -122,7 +122,7 @@ Button donate , date ;
                         builder.setCancelable(false);
                         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(BloodCategoryList.this , Homeactivity.class);
+                                Intent intent = new Intent(BloodCategoryList.this , DonationSuccessful.class);
                                 startActivity(intent);
                             }
                         });

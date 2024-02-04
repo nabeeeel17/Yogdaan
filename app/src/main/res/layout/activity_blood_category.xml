@@ -49,6 +49,7 @@
         android:layout_marginLeft="5dp"
         android:hint="In Foot"
         android:textSize="15dp"
+        android:inputType="number"
         android:id="@+id/Heightinft"
         android:layout_below="@+id/Height"/>
 
@@ -68,6 +69,7 @@
         android:layout_marginLeft="5dp"
         android:id="@+id/edit_weight"
         android:hint="In kg"
+        android:inputType="number"
         android:textSize="15dp"
 
         android:layout_below="@+id/Weight"/>

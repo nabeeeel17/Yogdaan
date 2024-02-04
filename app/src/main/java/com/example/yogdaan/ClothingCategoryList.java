@@ -79,8 +79,10 @@ donate.setOnClickListener(new View.OnClickListener() {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(ClothingCategoryList.this , Homeactivity.class);
+                        Intent intent = new Intent(ClothingCategoryList.this , DonationSuccessful.class);
+                        intent.putExtra("Email",donoremail);
                         startActivity(intent);
+
 
                     }
                 });

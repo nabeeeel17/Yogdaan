@@ -5,72 +5,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfile"
+    tools:context=".OrgProfile"
     android:orientation="vertical">
-
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         style="?actionBarStyle"
-        android:id="@+id/userprofile"
+        android:id="@+id/orgprofile"
         android:background="@color/Pista"
-        app:title="User Profile"/>
-    <androidx.cardview.widget.CardView
-        android:layout_width="200dp"
-        android:layout_marginTop="50dp"
-        android:layout_height="200dp"
-        app:cardCornerRadius="150dp"
-        android:layout_gravity="center"
-        android:id="@+id/imagecardview">
-
-        <ImageView
-            android:background="@color/Pista"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop"
-            android:src="@drawable/profile1"
-            android:id="@+id/profilepic1"
-            />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/edit"
-            android:backgroundTint="#89D8FB"
-            android:id="@+id/usereditpic"
-            android:layout_gravity="center"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="50dp"
-            />
-    </androidx.cardview.widget.CardView>
-
+        app:title="Organization Profile"/>
 
     <EditText
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:hint="Enter the Name"
+        android:hint="Enter Organization Name"
         android:inputType="textPersonName"
-        android:id="@+id/profileusername"
+        android:id="@+id/orgprofileusername"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
 
     <EditText
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:hint="Enter email"
-        android:id="@+id/profileemailid"
+        android:hint="Enter Organization Mobile Number"
+        android:id="@+id/orgprofilephoneno"
+        android:inputType="phone"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Organization E-Mail ID"
+        android:id="@+id/orgprofileemailid"
         android:inputType="textEmailAddress"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
 
+
     <EditText
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:hint="Enter Phone no"
-        android:id="@+id/profileuserphone"
-        android:inputType="phone"
+        android:hint="Enter Organization Address"
+        android:id="@+id/orgprofileaddress"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Organization Pin Code"
+        android:id="@+id/orgprofilepincode"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Organization UPI ID"
+        android:id="@+id/orgprofileupiid"
+        android:inputType="textEmailAddress"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
 
@@ -79,26 +75,24 @@
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:id="@+id/profilespinneruserbloodtype"
+        android:id="@+id/profilespinnerorgcategory"
         />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update"
         android:textSize="20dp"
-        android:id="@+id/updatebutton"
+        android:id="@+id/orgupdatebutton"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomnavUser"
+        android:id="@+id/bottomnav"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="105dp"
+        android:layout_marginTop="155dp"
         android:background="@color/Pista"
-        app:menu="@menu/toolbaritems"/>
+        app:menu="@menu/toolbaritems" />
 
 
 </LinearLayout>

@@ -41,6 +41,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Loginactivity extends AppCompatActivity {
+
+    //public static boolean isSplashPlayed=false;
     EditText email;
     FirebaseUser currentuser;
     EditText password;
@@ -67,6 +69,7 @@ public class Loginactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginactivity);
+      //  SplashScreen();
         init();
         checklogin();
 
@@ -215,6 +218,12 @@ public class Loginactivity extends AppCompatActivity {
 
 
         }
+//        void SplashScreen ()
+//        {
+//            if(!isSplashPlayed) {
+//                Intent isplash = new Intent(Loginactivity.this, SplashScreen.class);
+//                startActivity(isplash);
+//            }
+//        }
 
-
-    }
+        }
