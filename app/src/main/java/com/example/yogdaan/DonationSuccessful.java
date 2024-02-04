@@ -8,28 +8,27 @@ import android.os.Handler;
 
 import com.airbnb.lottie.LottieAnimationView;
 
-public class SplashScreen extends AppCompatActivity {
-
-    //LottieAnimationView lottieAnimationView;
+public class DonationSuccessful extends AppCompatActivity {
+    LottieAnimationView lottieAnimationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.activity_donation_successful);
 
-        //lottieAnimationView=findViewById(R.id.splash);
-        //lottieAnimationView.setAnimation(R.raw.lottie2);
+        lottieAnimationView=findViewById(R.id.tick);
+        lottieAnimationView.setAnimation(R.raw.bluetick);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 //Loginactivity.isSplashPlayed=true;
-                Intent isplash = new Intent(SplashScreen.this, Loginactivity.class);
-                startActivity(isplash);
+                Intent itick = new Intent(DonationSuccessful.this, Homeactivity.class);
+                startActivity(itick);
                 finish();
             }
-        },3000);
+        },5500);
 
     }
-
 }

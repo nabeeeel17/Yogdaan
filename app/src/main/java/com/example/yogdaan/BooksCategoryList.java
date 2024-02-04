@@ -80,7 +80,7 @@ public class BooksCategoryList extends AppCompatActivity {
                 builder.setCancelable(false);
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(BooksCategoryList.this , Homeactivity.class);
+                        Intent intent = new Intent(BooksCategoryList.this , DonationSuccessful.class);
                         startActivity(intent);
                     }
                 });

@@ -110,4 +110,11 @@
 
     </androidx.cardview.widget.CardView>
     </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/orgbottomnav"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="400dp"
+        android:background="@color/Pista"
+        app:menu="@menu/toolbaritems"/>
 </LinearLayout>

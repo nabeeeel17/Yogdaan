@@ -113,7 +113,7 @@ public class FoodCategoryList extends AppCompatActivity {
                 builder.setCancelable(false);
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(FoodCategoryList.this , Homeactivity.class);
+                        Intent intent = new Intent(FoodCategoryList.this , DonationSuccessful.class);
                         startActivity(intent);
                     }
                 });
