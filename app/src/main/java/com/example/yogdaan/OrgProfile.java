@@ -1,14 +1,119 @@
 package com.example.yogdaan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrgProfile extends AppCompatActivity {
+    EditText orgname , orgmbno , orgemail, orgupi , orgaddress , orgpincode;
+    FirebaseFirestore firestore;
+    FirebaseUser user ;
+    FirebaseAuth auth;
+    CollectionReference cref;
+    Button update;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_org_profile);
+        init();
+        setDetails();
+
+        update.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                if(orgname.getText().toString().isEmpty()){
+                    Toast.makeText(OrgProfile.this, "Please Enter Your Name", Toast.LENGTH_SHORT).show();
+                }
+                else if(orgemail.getText().toString().isEmpty()){
+                    Toast.makeText(OrgProfile.this, "Please Enter Your Email ID", Toast.LENGTH_SHORT).show();
+                }
+
+                else if(orgmbno.getText().toString().isEmpty()){
+                    Toast.makeText(OrgProfile.this, "Please Enter Your Phone No", Toast.LENGTH_SHORT).show();
+                }
+
+                else if(orgmbno.getText().toString().length()<10 || orgmbno.getText().toString().length()>10){
+                    Toast.makeText(OrgProfile.this, "Please Enter Valid 10 Digit Phone Number", Toast.LENGTH_SHORT).show();
+                } else if (orgaddress.getText().toString().isEmpty()) {
+                    Toast.makeText(OrgProfile.this, "Please Enter Organization Address", Toast.LENGTH_SHORT).show();
+                } else if (orgpincode.getText().toString().isEmpty() || orgpincode.getText().toString().length()>6 || orgpincode.getText().toString().length()<6) {
+                    Toast.makeText(OrgProfile.this, "Please Enter Valid ^ digit pin code", Toast.LENGTH_SHORT).show();
+                } else if (orgupi.getText().toString().isEmpty()) {
+                    Toast.makeText(OrgProfile.this, "Please enter Organization Upi ID", Toast.LENGTH_SHORT).show();
+                } else {
+                    updateUser();
+                }
+            }
+        });
+    }
+
+    private void setDetails() {
+        cref.document(user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                orgname.setText(task.getResult().getString("Name"));
+                orgupi.setText(task.getResult().getString("Organisation UPI ID"));
+                orgmbno.setText(task.getResult().getString("Organization Number"));
+                orgemail.setText(task.getResult().getString("Organization Email"));
+                orgpincode.setText(task.getResult().getString("Organization Pin Code"));
+                orgaddress.setText(task.getResult().getString("Organization Address"));
+            }
+        });
+    }
+
+    private void updateUser() {
+        Map<String , Object> User = new HashMap<>();
+        User.put("Name" , orgname.getText().toString());
+        User.put("Organization Email" , orgemail.getText().toString());
+        User.put("Organization Address" , orgaddress.getText().toString());
+        User.put("Organization Number" , orgmbno.getText().toString());
+        User.put("Organisation UPI ID" , orgupi.getText().toString());
+        User.put("Organization Pin Code" , orgpincode.getText().toString());
+
+
+        cref.document(user.getEmail()).update(User).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(OrgProfile.this, "Details Updated Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(OrgProfile.this , OrganizationDashboard.class));
+                finish();
+            }
+        });
+    }
+
+    public  void  init(){
+        orgname = findViewById(R.id.orgprofileusername);
+        orgmbno = findViewById(R.id.orgprofilephoneno);
+        orgemail = findViewById(R.id.orgprofileemailid);
+        update = findViewById(R.id.orgupdatebutton);
+        orgupi = findViewById(R.id.orgprofileupiid);
+        orgaddress = findViewById(R.id.orgprofileaddress);
+        orgpincode = findViewById(R.id.orgprofilepincode);
+        firestore = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        cref = firestore.collection("Organization Details");
+
     }
 }

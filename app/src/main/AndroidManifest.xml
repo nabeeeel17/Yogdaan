@@ -78,6 +78,10 @@
             android:name=".GroceryCategoryList"
             android:exported="false" />
         <activity
+            android:name=".OrgProfile"
+            android:exported="false" />
+
+        <activity
             android:name=".BooksCategoryList"
             android:exported="false" />
         <activity
