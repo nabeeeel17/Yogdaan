@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BloodCategoryList"
+    tools:context=".BloodDonatedOrg"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         style="?actionBarStyle"
-        android:id="@+id/bloodcategorytoolbar"
+        android:id="@+id/blooddonatedtoolbar"
         android:background="@color/Pista" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/MedicalHistory"
-        android:text="Any Medical History"
-        android:layout_marginTop="70dp"
+        android:id="@+id/MedicalHistory1"
+        android:textSize="20dp"
+        android:text="Medical History"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="5dp"/>
 
 
@@ -29,7 +30,7 @@
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:id="@+id/edtmedicalhistory"
+        android:id="@+id/edtmedicalhistory1"
         android:hint="e.g:Blood pressure,Diabeties..."
         android:textSize="15dp"
         android:layout_below="@+id/MedicalHistory"/>
@@ -38,9 +39,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Height"
-        android:text="Enter your Height"
-        android:layout_marginTop="130dp"
+        android:id="@+id/Height1"
+        android:textSize="20dp"
+        android:text="Height"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="5dp"/>
 
     <EditText
@@ -50,15 +52,16 @@
         android:hint="In Foot"
         android:textSize="15dp"
         android:inputType="number"
-        android:id="@+id/Heightinft"
+        android:id="@+id/Heightinft_edittxt"
         android:layout_below="@+id/Height"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Weight"
-        android:text="Enter your Weight"
-        android:layout_marginTop="190dp"
+        android:id="@+id/Weight1"
+        android:textSize="20dp"
+        android:text="Weight"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="5dp"/>
 
 
@@ -67,7 +70,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:id="@+id/edit_weight"
+        android:id="@+id/edittxt_weight"
         android:hint="In kg"
         android:inputType="number"
         android:textSize="15dp"
@@ -76,50 +79,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linear"
-        android:layout_below="@+id/edit_weight"
+        android:id="@+id/linearlay"
+        android:layout_below="@+id/edittxt_weight"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Please Select Your Blood Group"
+            android:textSize="20dp"
+            android:text="  Blood Group"
             android:layout_weight="1"
             android:textStyle="bold"/>
 
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerblooddonated"
+            android:layout_weight="1"/>
 
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerblood"
-        android:layout_weight="1"/>
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/blooddate"
-        android:hint="Select the date on which you want to donate*"
-        android:layout_below="@+id/linear"
-        android:textStyle="bold"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/blooddate"
-        android:id="@+id/bloodselecteddate"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        />
-
-    <Button
-        android:id="@+id/Donatebtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bloodselecteddate"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="0dp"
-        android:text="DONATE"
-        android:textSize="15dp" />
-
-</RelativeLayout>
+</LinearLayout>
