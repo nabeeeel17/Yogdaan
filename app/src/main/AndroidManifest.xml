@@ -24,6 +24,9 @@
         android:theme="@style/Theme.Yogdaan"
         tools:targetApi="31">
         <activity
+            android:name=".DonationSuccessful"
+            android:exported="false" />
+        <activity
             android:name=".GroceryDonatedOrg"
             android:exported="false" />
         <activity
