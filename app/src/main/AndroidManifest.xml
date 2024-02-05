@@ -24,6 +24,18 @@
         android:theme="@style/Theme.Yogdaan"
         tools:targetApi="31">
         <activity
+            android:name=".GroceryDonatedOrg"
+            android:exported="false" />
+        <activity
+            android:name=".FoodDnatedOrg"
+            android:exported="false" />
+        <activity
+            android:name=".BloodDonatedOrg"
+            android:exported="false" />
+        <activity
+            android:name=".BooksDonatedOrg"
+            android:exported="false" />
+        <activity
             android:name=".CLothesDonatedOrg"
             android:exported="false" />
         <activity
