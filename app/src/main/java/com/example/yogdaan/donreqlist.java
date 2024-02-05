@@ -46,6 +46,7 @@ ArrayList<DonorModel> list ;
                         DonorModel dm = new DonorModel();
                         dm.setDonorname(document.getString("Donor Name"));
                         dm.setDonorphoneno(document.getString("Donor Phone No"));
+                        dm.setDonationtype(donationtype);
                         list.add(dm);
                         Toast.makeText(donreqlist.this, "iffff", Toast.LENGTH_SHORT).show();
                     }
@@ -74,12 +75,10 @@ ArrayList<DonorModel> list ;
             donationtype= "Food Donation Details";
         } else if (category.equals("Grocery")) {
             donationtype= "Grocery Donation Details";
-        } else if (category.equals("Blood")) {
-            donationtype = "Blood Donation Details";
-        } else if (category.equals("Clothes")) {
+        }else if (category.equals("Clothes")) {
             donationtype="Clothes Donation Details";
         }
-        ;
+
 
 
     }

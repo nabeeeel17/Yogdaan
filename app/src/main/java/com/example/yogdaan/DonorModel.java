@@ -2,7 +2,15 @@ package com.example.yogdaan;
 
 public class DonorModel {
 
-    String donorname , donoremail , donorphoneno ;
+    String donorname , donoremail , donorphoneno , donationtype;
+
+    public String getDonationtype() {
+        return donationtype;
+    }
+
+    public void setDonationtype(String donationtype) {
+        this.donationtype = donationtype;
+    }
 
     public String getDonorname() {
         return donorname;
