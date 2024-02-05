@@ -42,7 +42,7 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.MyView
             if (holder.donationtype.equals("Clothes Donation Details")){
                 Intent intent = new Intent(context , CLothesDonatedOrg.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Donor Name", holder.donorname.getText());
+                intent.putExtra("Donor Name",arrayList.get(position).getDonorname());
                 context.startActivity(intent);
             }
             }

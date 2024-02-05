@@ -59,8 +59,8 @@ public class GroceryCategoryList extends AppCompatActivity {
                 DatePickerDialog datePickerDialog =new DatePickerDialog(GroceryCategoryList.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-
-                        sdate =day+"-"+(month+1)+"-"+year;
+                        month = month+1;
+                        sdate =day+"-"+month+"-"+year;
                         selecteddate.setText("Selected Date : "+sdate);
                     }
                 },year,month , day);
