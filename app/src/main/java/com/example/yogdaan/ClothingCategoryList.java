@@ -56,6 +56,7 @@ donate.setOnClickListener(new View.OnClickListener() {
         Donor.put("Donor Name" , donorname);
         Donor.put("Donor Email" , donoremail );
         Donor.put("Donor Phone No" , donorphno);
+        Donor.put("Donated to" , orgname);
         Donor.put("Clothes For Age" , age.getText().toString() );
         Donor.put("No Of Shirts for Male" , edtshirts.getText().toString());
         Donor.put("No Of T Shirts for Male" , edttshirts.getText().toString());
