@@ -59,9 +59,7 @@
         <activity
             android:name=".BloodTypeActivity"
             android:exported="false" />
-        <activity
-            android:name=".CLothesDonatedOrg"
-            android:exported="false" />
+
         <activity
             android:name=".MoneyOrgList"
             android:exported="false" />
