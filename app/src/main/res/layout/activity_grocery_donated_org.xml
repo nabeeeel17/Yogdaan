@@ -26,12 +26,11 @@
         android:layout_marginLeft="5dp"/>
 
 
-
-    <EditText
+    <TextView
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:hint="e.g:Grains,sugar.."
+        android:text="sample text"
         android:textSize="20dp"
         android:id="@+id/edtdonatedrawmaterial"
         android:layout_below="@+id/RawMaterial"
@@ -46,15 +45,41 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="5dp"/>
 
-    <EditText
+    <TextView
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:hint="In kg's"
+        android:text="sample text"
         android:textSize="20dp"
         android:inputType="number"
         android:id="@+id/edtdonatedamountinkg"
         android:layout_below="@+id/donatedAmountOfRawmaterial"
         />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearlay"
+        android:layout_below="@+id/edittxt_weight"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date :"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sample text"
+            android:id="@+id/dategrocery"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
 
 </LinearLayout>

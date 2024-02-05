@@ -22,27 +22,57 @@
         android:layout_height="wrap_content"
         android:text="Type Of Books Doanted :"
         android:textSize="20dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp" />
 
-    <EditText
+    <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:id="@+id/donatedbooktype"
-        android:hint="e.g Educational"/>
+        android:text="sample text"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No of Books Donated :"
         android:textSize="20dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         />
 
-    <EditText
+    <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:layout_marginLeft="5dp"
         android:id="@+id/noofbooksdonated"
-        android:hint="e.g 5"/>
+        android:text="sample text"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearlay"
+        android:layout_below="@+id/edittxt_weight"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date :"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sample text"
+            android:id="@+id/datebooks"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

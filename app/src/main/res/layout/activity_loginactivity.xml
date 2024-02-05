@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="YOGDAN"
+        android:text="YOGDAAN"
+        android:textStyle="bold"
         android:textColor="#4CAF50"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,10 +30,11 @@
         >
         <EditText
             android:id="@+id/emailfield"
-            android:layout_width="match_parent"
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:hint="Email"
+            android:layout_gravity="center"
             android:drawablePadding="10dp"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -45,10 +47,11 @@
         >
         <EditText
             android:id="@+id/passwordfield"
-            android:layout_width="match_parent"
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Password"
+            android:layout_gravity="center"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 <TextView
