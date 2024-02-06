@@ -3,6 +3,7 @@ package com.example.yogdaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -36,6 +37,7 @@ import java.util.Map;
 
 public class BloodCategoryList extends AppCompatActivity {
     String doncategory , email, orgname;
+    Toolbar toolbar;
     Spinner spinner;
     TextView selecteddate;
     Calendar calendar;
@@ -54,8 +56,15 @@ Button donate , date ;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blood_category);
+        setToolbar();
         init();
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,7 +143,14 @@ Button donate , date ;
 
     }
 
+    public void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+
     private void init(){
+        toolbar=findViewById(R.id.bloodcategorytoolbar);
         medicalh = findViewById(R.id.edtmedicalhistory);
         date = findViewById(R.id.blooddate);
         selecteddate = findViewById(R.id.bloodselecteddate);

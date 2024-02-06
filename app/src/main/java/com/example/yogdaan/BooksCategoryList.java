@@ -3,6 +3,7 @@ package com.example.yogdaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,6 +29,7 @@ public class BooksCategoryList extends AppCompatActivity {
     FirebaseFirestore firestore;
     FirebaseUser firebaseUser;
 
+    Toolbar toolbar;
     String orgname;
     EditText booktype , noofbooks;
     CollectionReference cref;
@@ -40,8 +42,15 @@ public class BooksCategoryList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books_category_list);
-
+        setToolbar();
         init();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         donate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,10 +99,15 @@ public class BooksCategoryList extends AppCompatActivity {
             }
         });
 
+    }
+    public void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
     public  void init(){
+        toolbar=findViewById(R.id.bookscategorytoolbar);
         booktype = findViewById(R.id.booktype);
         noofbooks = findViewById(R.id.noofbooks);
         firestore = FirebaseFirestore.getInstance();

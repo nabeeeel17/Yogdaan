@@ -3,6 +3,7 @@ package com.example.yogdaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -29,6 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GroceryCategoryList extends AppCompatActivity {
+    Toolbar toolbar;
     FirebaseFirestore firestore;
     FirebaseUser firebaseUser;
     String orgname;
@@ -46,7 +48,15 @@ public class GroceryCategoryList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grocery_category_list);
+        setToolbar();
         init();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +128,13 @@ public class GroceryCategoryList extends AppCompatActivity {
         });
     }
 
+    public void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
     public void init() {
+        toolbar=findViewById(R.id.grocerycategorytoolbar);
         rawmaterial = findViewById(R.id.edtrawmaterial);
         rawmaterialamnt = findViewById(R.id.edtamountinkg);
         firestore = FirebaseFirestore.getInstance();

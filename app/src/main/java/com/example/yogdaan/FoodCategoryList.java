@@ -3,6 +3,7 @@ package com.example.yogdaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.util.Pair;
 
 import android.app.DatePickerDialog;
@@ -34,6 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FoodCategoryList extends AppCompatActivity {
+    Toolbar toolbar;
     EditText food , noofpeople;
     FirebaseFirestore firestore;
     FirebaseUser firebaseUser;
@@ -51,8 +53,15 @@ public class FoodCategoryList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_categorylist);
+        setToolbar();
         init();
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,7 +133,14 @@ public class FoodCategoryList extends AppCompatActivity {
         });
     }
 
+    public void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+
     public  void init(){
+        toolbar=findViewById(R.id.foodcategorytoolbar);
         food = findViewById(R.id.food_edittext);
         date = findViewById(R.id.date);
         selecteddate = findViewById(R.id.selecteddate);

@@ -3,6 +3,7 @@ package com.example.yogdaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,6 +30,7 @@ public class ClothingCategoryList extends AppCompatActivity {
     FirebaseFirestore firestore;
     FirebaseUser user;
     FirebaseAuth auth;
+    Toolbar toolbar;
     CollectionReference cref;
     DocumentReference dref;
     String orgname;
@@ -40,8 +42,16 @@ public class ClothingCategoryList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clothingcategory);
+        setToolbar();
         init();
 
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 donate.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
@@ -92,8 +102,14 @@ donate.setOnClickListener(new View.OnClickListener() {
         });
 
     }
+    public void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
 
     private  void  init(){
+        toolbar = findViewById(R.id.clothingcategorytoolbar);
         firestore = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         cref = firestore.collection("Users Details");
