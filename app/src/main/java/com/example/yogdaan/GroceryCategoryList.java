@@ -94,6 +94,7 @@ public class GroceryCategoryList extends AppCompatActivity {
         Donation.put("Donation Date" , sdate);
         Donation.put("Donated to" , orgname);
         Donation.put("Donor Email" , donoremail);
+        Donation.put("Donor Phone No" , donorphoneno);
 
         firestore.collection("Grocery Donation Details").document(donoremail).set(Donation).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

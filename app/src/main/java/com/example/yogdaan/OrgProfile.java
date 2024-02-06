@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,14 +22,17 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class OrgProfile extends AppCompatActivity {
     EditText orgname , orgmbno , orgemail, orgupi , orgaddress , orgpincode;
     FirebaseFirestore firestore;
+    ArrayList<String> list ;
     FirebaseUser user ;
     FirebaseAuth auth;
+    Spinner spinner;
     CollectionReference cref;
     Button update;
 
@@ -67,6 +73,19 @@ public class OrgProfile extends AppCompatActivity {
                 }
             }
         });
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                String item = adapterView.getItemAtPosition(position).toString();
+                Log.e("6969" , ""+item);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void setDetails() {
@@ -91,6 +110,7 @@ public class OrgProfile extends AppCompatActivity {
         User.put("Organization Number" , orgmbno.getText().toString());
         User.put("Organisation UPI ID" , orgupi.getText().toString());
         User.put("Organization Pin Code" , orgpincode.getText().toString());
+        User.put("Organization Category" , spinner.getSelectedItem().toString());
 
 
         cref.document(user.getEmail()).update(User).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -109,11 +129,33 @@ public class OrgProfile extends AppCompatActivity {
         orgemail = findViewById(R.id.orgprofileemailid);
         update = findViewById(R.id.orgupdatebutton);
         orgupi = findViewById(R.id.orgprofileupiid);
+        spinner = findViewById(R.id.profilespinnerorgcategory);
         orgaddress = findViewById(R.id.orgprofileaddress);
         orgpincode = findViewById(R.id.orgprofilepincode);
         firestore = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         cref = firestore.collection("Organization Details");
+        list = new ArrayList<>();
+        list.add("Food");
+        list.add("Grocery");
+        list.add("Blood");
+        list.add("Books");
+        list.add("Toys");
+        list.add("Clothes");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this , android.R.layout.simple_spinner_item ,list);
+        adapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+        spinner.setAdapter(adapter);
+
+        firestore.collection("Organization Details").document(user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                String selected = task.getResult().getString("Organization Category");
+                Log.e("heyyy", "" + selected);
+                int pos = adapter.getPosition(selected);
+                spinner.setSelection(pos);
+
+            }
+        });
 
     }
 }

@@ -19,7 +19,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class BloodDonatedOrg extends AppCompatActivity {
-    TextView dname , dmbno , demail , mhistory , h , w , bloodtype;
+    TextView dname , dmbno , demail , mhistory , h , w , bloodtype , date;
     String donorname;
     Button call;
     FirebaseFirestore firestore;
@@ -52,6 +52,7 @@ public class BloodDonatedOrg extends AppCompatActivity {
         h = findViewById(R.id.Heightinft_edittxt);
         w =  findViewById(R.id.edittxt_weight);
         bloodtype = findViewById(R.id.bloodtype);
+        date = findViewById(R.id.bloodtype);
         donorname = getIntent().getStringExtra("Donor Name");
         call = findViewById(R.id.bcallbutton);
         Log.e("tgg" , ""+donorname);
@@ -66,6 +67,7 @@ public class BloodDonatedOrg extends AppCompatActivity {
                 dmbno.setText(task.getResult().getString("Donor Phone No"));
                 demail.setText(task.getResult().getString("Donor Email"));
                 mhistory.setText(task.getResult().getString("Donor Medical History"));
+                date.setText(task.getResult().getString("Donor Blood Group"));
                 h.setText(task.getResult().getString("Donor Height"));
                 w.setText(task.getResult().getString("Donor Weight"));
                 bloodtype.setText(task.getResult().getString("Donor Blood Group"));
