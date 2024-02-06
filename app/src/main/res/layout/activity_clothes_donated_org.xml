@@ -20,6 +20,94 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border">
+        <TextView
+            android:id="@+id/dname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/clothesdonatedforage"
+            android:text="Donor Name :"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:text="sample text"
+            android:layout_height="wrap_content"
+            android:id="@+id/dnametv"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border">
+        <TextView
+            android:id="@+id/dmbno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/clothesdonatedforage"
+            android:text="Donor Mobile Number :"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:text="sample text"
+            android:layout_height="wrap_content"
+            android:id="@+id/dmbnotv"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:text="Call Donor"
+            android:id="@+id/callbutton"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border">
+        <TextView
+            android:id="@+id/demail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/clothesdonatedforage"
+            android:text="Donor E mail :"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:text="sample text"
+            android:layout_height="wrap_content"
+            android:id="@+id/demailtv"/>
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginTop="10dp">
         <TextView
             android:id="@+id/age"
@@ -37,6 +125,8 @@
             android:layout_marginLeft="10dp"
             android:inputType="number"
             android:text="sample text"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             android:id="@+id/donatedage_edittext"/>
 
@@ -49,7 +139,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cloths Donated For Male :"
+            android:text="Cloths Donated For Male "
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_marginTop="30dp"
@@ -74,6 +164,8 @@
 
         <TextView
             android:layout_width="170dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:id="@+id/edittext_donatedshirts"
             android:inputType="number"
             android:text="sample text"
@@ -102,6 +194,8 @@
             android:layout_width="170dp"
             android:inputType="number"
             android:text="sample text"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_donatedtshirt"/>
     </LinearLayout>
@@ -124,6 +218,8 @@
             android:layout_width="170dp"
             android:inputType="number"
             android:text="sample text"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_donatedjeans"
             />
@@ -164,6 +260,8 @@
             android:inputType="number"
             android:text="sample text"
             android:layout_marginLeft="5dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_donatedshirtsf"
             />
@@ -186,6 +284,8 @@
         <TextView
             android:layout_width="170dp"
             android:inputType="number"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:text="sample text"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_tshirtsdonatedf"
@@ -212,6 +312,8 @@
             android:layout_width="170dp"
             android:inputType="number"
             android:text="sample text"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_jeansdonatedf"
 
@@ -237,6 +339,8 @@
             android:layout_width="130dp"
             android:inputType="number"
             android:text="sample text"
+            android:textSize="15dp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             />
 

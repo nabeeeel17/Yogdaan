@@ -66,6 +66,7 @@ donate.setOnClickListener(new View.OnClickListener() {
         Donor.put("Donor Name" , donorname);
         Donor.put("Donor Email" , donoremail );
         Donor.put("Donor Phone No" , donorphno);
+        Donor.put("Donated to" , orgname);
         Donor.put("Clothes For Age" , age.getText().toString() );
         Donor.put("No Of Shirts for Male" , edtshirts.getText().toString());
         Donor.put("No Of T Shirts for Male" , edttshirts.getText().toString());
@@ -75,7 +76,7 @@ donate.setOnClickListener(new View.OnClickListener() {
         Donor.put("No Of Jeans for Female" , edtjeansf.getText().toString());
         Donor.put("No Of Ethnic Wears for Female" , edtethnicf.getText().toString());
 
-        firestore.collection("Clothes Donation").document(donorname).set(Donor).addOnCompleteListener(new OnCompleteListener<Void>() {
+        firestore.collection("Clothes Donation Details").document(donorname).set(Donor).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(ClothingCategoryList.this, "Donation Registered Successfully", Toast.LENGTH_SHORT).show();
@@ -114,7 +115,7 @@ donate.setOnClickListener(new View.OnClickListener() {
         user = FirebaseAuth.getInstance().getCurrentUser();
         cref = firestore.collection("Users Details");
         dref = cref.document(user.getEmail());
-        orgname = getIntent().getStringExtra("Org name");
+        orgname = getIntent().getStringExtra("Org Name");
         edtshirts = findViewById(R.id.edittext_shirts);
         edttshirts = findViewById(R.id.edittext_tshirt);
         edtjeans = findViewById(R.id.edittext_jeans);

@@ -71,10 +71,10 @@ public class OrganizationDashboard extends AppCompatActivity {
                   //  ihelp.putExtra("Email",email);
                   //  startActivity(ihelp);
                 } else if (id==R.id.optlogout) {
-                   // auth.signOut();
-                   // Intent ilogout=new Intent(Homeactivity.this,Loginactivity.class);
-                   // ilogout.putExtra("Email",email);
-                   // startActivity(ilogout);
+                   auth.signOut();
+                   Intent ilogout=new Intent(OrganizationDashboard.this,Loginactivity.class);
+                   ilogout.putExtra("Email",email);
+                   startActivity(ilogout);
 
 
                 }

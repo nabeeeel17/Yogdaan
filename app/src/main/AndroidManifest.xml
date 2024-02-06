@@ -5,6 +5,9 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- Declaring the required permissions -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -12,6 +15,8 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
 
     <application
         android:allowBackup="true"
@@ -62,6 +67,7 @@
         <activity
             android:name=".BloodTypeActivity"
             android:exported="false" />
+
         <activity
             android:name=".MoneyOrgList"
             android:exported="false" />
