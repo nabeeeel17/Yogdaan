@@ -45,6 +45,14 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.MyView
                 intent.putExtra("Donor Name",arrayList.get(position).getDonorname());
                 context.startActivity(intent);
             }
+
+            if(holder.donationtype.equals("Blood Donation Details"))
+                {
+                    Intent intent = new Intent(context , BloodDonatedOrg.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("Donor Name",arrayList.get(position).getDonorname());
+                    context.startActivity(intent);
+                }
             }
         });
 
