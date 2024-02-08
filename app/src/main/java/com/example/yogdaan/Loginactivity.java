@@ -163,6 +163,17 @@ public class Loginactivity extends AppCompatActivity {
                                 intent.putExtra("Login Type", "Donor");
                                 startActivity(intent);
                                 Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
+                                firestore.collection("Users Details").document(email).update("Type of User" , "Donor").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Toast.makeText(Loginactivity.this, "Donor", Toast.LENGTH_SHORT).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.e("tggg" , "failedd");
+                                    }
+                                });
 
                                 finish();
                             }
@@ -186,6 +197,17 @@ public class Loginactivity extends AppCompatActivity {
                                 intent.putExtra("Login Type", type);
                                 startActivity(intent);
                                 Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
+                                firestore.collection("Users Details").document(email).update("Type of User" , "Organisation").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Toast.makeText(Loginactivity.this, "Organisaton", Toast.LENGTH_SHORT).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.e("tggg" , "failedd");
+                                    }
+                                });
                                 finish();
                             }
                         }
