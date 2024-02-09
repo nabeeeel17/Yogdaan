@@ -118,7 +118,7 @@ public class Loginactivity extends AppCompatActivity {
                                     Log.e("Email", "" + email);
                                     startActivity(intent);
                                     finish();
-                                } else {
+                                } else if (type.equals("Organisation")){
                                    startActivity(new Intent(Loginactivity.this, OrganizationDashboard.class));
                                    finish();
 

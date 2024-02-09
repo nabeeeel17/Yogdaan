@@ -36,6 +36,7 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.MyView
         holder.donorname.setText("Donor Name : "+arrayList.get(position).getDonorname());
         holder.donorphoneno.setText("Donor Phone No : "+arrayList.get(position).getDonorphoneno());
         holder.donationtype = arrayList.get(position).getDonationtype();
+
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

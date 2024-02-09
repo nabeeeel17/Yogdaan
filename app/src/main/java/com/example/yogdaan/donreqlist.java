@@ -2,9 +2,12 @@ package com.example.yogdaan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -29,6 +32,7 @@ ArrayList<DonorModel> list ;
     DocumentReference documentReference;
     Query query;
     DonationAdapter adapter;
+    private static final int REQUEST_PHONE_CALL = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,7 @@ ArrayList<DonorModel> list ;
         });
     }
 
+
     public  void init(){
         recyclerView = findViewById(R.id.donreqrecyclerview);
         list = new ArrayList<>();
@@ -82,4 +87,6 @@ ArrayList<DonorModel> list ;
 
 
     }
+
+
 }

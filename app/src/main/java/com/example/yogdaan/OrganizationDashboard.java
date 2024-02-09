@@ -3,8 +3,11 @@ package com.example.yogdaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -27,6 +30,7 @@ public class OrganizationDashboard extends AppCompatActivity {
     String email , logintype , category , orgname;
 
     CardView emergency , donreq;
+    private static final int REQUEST_PHONE_CALL = 1;
     FirebaseFirestore firestore;
     BottomNavigationView bottomNavigationView;
     FirebaseUser user ;
@@ -38,6 +42,7 @@ public class OrganizationDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organization_dashboard);
         init();
+        checkpermissionandmakecall();
 
         donreq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,8 +59,11 @@ public class OrganizationDashboard extends AppCompatActivity {
         emergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
+                Intent intent ;
                 intent = new Intent(OrganizationDashboard.this , emergency.class);
+                intent.putExtra("Cat" , category);
+                intent.putExtra("Org name" , orgname);
+                Log.e("taggg" , ""+category+","+orgname);
                 startActivity(intent);
             }
         });
@@ -87,6 +95,26 @@ public class OrganizationDashboard extends AppCompatActivity {
         });
         bottomNavigationView.setSelectedItemId(R.id.optorghome);
 
+    }
+    private void checkpermissionandmakecall(){
+        if(ActivityCompat.checkSelfPermission(OrganizationDashboard.this , android.Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(this, "requesting permission", Toast.LENGTH_SHORT).show();
+            ActivityCompat.requestPermissions(OrganizationDashboard.this , new String[]{Manifest.permission.CALL_PHONE} , REQUEST_PHONE_CALL);
+        }
+        else {
+            //callperson();
+            Toast.makeText(this, "granted already", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode==REQUEST_PHONE_CALL){
+            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            }
+        }
     }
 
 

@@ -142,7 +142,7 @@ public class Organisationdetails extends AppCompatActivity {
     orgemail = findViewById(R.id.orgemail);
     spinner= findViewById(R.id.spinner);
     orgupi = findViewById(R.id.orgupiid);
-    category = new String[]{"Food" , "Grocery" , "Blood" , "Toys" , "Books"};
+    category = new String[]{"Food" , "Grocery" , "Blood" , "Books"};
     firestore= FirebaseFirestore.getInstance();
     proceed = findViewById(R.id.proceed);
     preferences = getSharedPreferences("state" , MODE_PRIVATE);
