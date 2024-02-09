@@ -107,7 +107,7 @@ public class UserDetails extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (encode.equals(null)){
+                    if (encode==null){
                         Toast.makeText(UserDetails.this, "Please Select Image", Toast.LENGTH_SHORT).show();
                     }
                     else if(username.getText().toString().isEmpty()){
