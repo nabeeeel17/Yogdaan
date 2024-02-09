@@ -1,6 +1,8 @@
 package com.example.yogdaan;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +31,8 @@ public class Homeactivity extends AppCompatActivity {
     String email;
     Intent intent;
     Toolbar toolbar;
+    private static final int REQUEST_PHONE_CALL = 1;
+
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     BottomNavigationView bottomNavigationView;
@@ -140,6 +145,26 @@ public class Homeactivity extends AppCompatActivity {
         });
 
 
+    }
+    private void checkpermissionandmakecall(){
+        if(ActivityCompat.checkSelfPermission(Homeactivity.this , android.Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(this, "requesting permission", Toast.LENGTH_SHORT).show();
+            ActivityCompat.requestPermissions(Homeactivity.this , new String[]{Manifest.permission.CALL_PHONE} , REQUEST_PHONE_CALL);
+        }
+        else {
+            //callperson();
+            Toast.makeText(this, "granted already", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode==REQUEST_PHONE_CALL){
+            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            }
+        }
     }
 
     public void setToolbar(){
