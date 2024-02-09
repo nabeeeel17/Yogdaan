@@ -73,6 +73,7 @@ public class UserProfile extends AppCompatActivity {
         init();
         setUser();
         seturi();
+        bottomNavigationView.setSelectedItemId(R.id.optprofile);
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -99,7 +100,7 @@ public class UserProfile extends AppCompatActivity {
                 return false;
             }
         });
-        bottomNavigationView.setSelectedItemId(R.id.optprofile);
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -270,7 +271,7 @@ public class UserProfile extends AppCompatActivity {
             spinner = findViewById(R.id.profilespinneruserbloodtype);
             logintype = getIntent().getStringExtra("Login Type");
             submit = findViewById(R.id.updatebutton);
-            //documentReference = cref.document(useremail);
+            documentReference = cref.document(useremail);
             emailedittext.setText(useremail);
 
         firestore.collection("Users Details").document(useremail).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
