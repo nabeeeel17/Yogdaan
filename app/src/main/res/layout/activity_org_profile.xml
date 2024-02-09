@@ -69,14 +69,24 @@
         android:inputType="textEmailAddress"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Organization Category"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
 
     <Spinner
-        android:layout_width="340dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:id="@+id/profilespinnerorgcategory"
         />
+    </LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

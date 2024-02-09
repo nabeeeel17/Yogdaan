@@ -107,14 +107,27 @@ public class UserDetails extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if (encode.equals(null)){
+                        Toast.makeText(UserDetails.this, "Please Select Image", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(username.getText().toString().isEmpty()){
+                        Toast.makeText(UserDetails.this, "Please Enter Your Email ID", Toast.LENGTH_SHORT).show();
+                    }
 
+                    else if(userphoneno.getText().toString().isEmpty() && userphoneno.getText().toString().length()>10 && userphoneno.getText().length()<10){
+                        Toast.makeText(UserDetails.this, "Please Enter Your Phone No", Toast.LENGTH_SHORT).show();
+                    }
 
-                    userdetails(logintype);
-
-                    startActivity(new Intent(UserDetails.this , Homeactivity.class)
-                            .putExtra("Email" , useremail)
-                            .putExtra("uri" , newuri));
-                    editor.putBoolean("isDetailsSubmitted?" , true ).commit();
+                    else if(userphoneno.getText().toString().length()<10 || userphoneno.getText().toString().length()>10){
+                        Toast.makeText(UserDetails.this, "Please Enter Valid 10 Digit Phone Number", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        userdetails(logintype);
+                        startActivity(new Intent(UserDetails.this, Homeactivity.class)
+                                .putExtra("Email", useremail)
+                                .putExtra("uri", newuri));
+                        editor.putBoolean("isDetailsSubmitted?", true).commit();
+                    }
 
                 }
             });
@@ -160,7 +173,8 @@ public class UserDetails extends AppCompatActivity {
             User.put("Email" , useremail);
             User.put("Phone No" , userphoneno.getText().toString());
             User.put("Type of User" , typeofuser.toString());
-            User.put("Blood Type" ,blood );
+            User.put("Blood Type" ,blood);
+
             User.put("uri" , encode);
 
             firestore.collection("Users Details").document(useremail.toString())
