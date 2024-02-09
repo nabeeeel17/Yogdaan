@@ -13,14 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         style="?actionBarStyle"
+        app:title="Clothes Category"
         android:id="@+id/clothingcategorytoolbar"
-        android:background="@color/Pista"
+        android:background="#52B156"
         />
 
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="7dp"
+    android:background="@drawable/border1"
     android:layout_marginTop="10dp">
     <TextView
         android:id="@+id/age"
@@ -29,45 +33,54 @@
         android:layout_marginLeft="5dp"
         android:textStyle="bold"
         android:layout_below="@+id/clothingcategorytoolbar"
-        android:text="Cloths Donating For Which Age :"
+        android:text=" Cloths Donating For Which Age :"
         android:textSize="20dp"
         />
 
     <EditText
         android:layout_width="90dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:inputType="number"
         android:layout_height="wrap_content"
         android:id="@+id/age_edittext"/>
 
 </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/border1">
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cloths For Male :"
+        android:layout_height="35dp"
+        android:text="  Cloths For Male :  "
         android:textSize="20dp"
         android:textStyle="bold"
+        android:layout_marginTop="10dp"
         android:id="@+id/clothsformale"
         android:layout_marginLeft="5dp"
         />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
+        android:orientation="horizontal"
+        android:background="@drawable/border1"
+        android:layout_marginTop="5dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No of Shirts :"
+        android:text="  No of Shirts :  "
         android:textSize="20dp"
         android:textStyle="bold"
         android:layout_marginLeft="5dp"
         android:id="@+id/shirtstxt"
-        android:layout_marginTop="8dp"
+
         />
 
     <EditText
@@ -81,16 +94,19 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/border1"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No of TShirts :"
+        android:text="  No of TShirts :  "
         android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:id="@+id/tshirtstxt"
         />
@@ -102,16 +118,20 @@
         android:id="@+id/edittext_tshirt"/>
     </LinearLayout>
 <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginLeft="7dp"
+    android:background="@drawable/border1"
+    >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No of Jeans :"
+        android:text="  No of Jeans :  "
         android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_marginTop="7dp"
         android:layout_marginLeft="5dp"
         android:id="@+id/jeanstxt"
         />
@@ -124,32 +144,40 @@
         />
 </LinearLayout>
 <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:orientation="horizontal"
+    android:background="@drawable/border1"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginLeft="7dp">
      <TextView
          android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Cothes For Female :"
+         android:layout_height="35dp"
+         android:text="  Clothes For Female :  "
          android:id="@+id/clothesforfemale"
          android:textStyle="bold"
          android:textSize="20dp"
-         android:layout_marginTop="20dp"
+
          />
 </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:background="@drawable/border1"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="5dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/noofshirtsF"
-        android:text="No of Shirts :"
+        android:text="  No of Shirts :  "
         android:textStyle="bold"
         android:textSize="20dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
+
         />
 
     <EditText
@@ -162,16 +190,19 @@
     </LinearLayout>
 
 <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:orientation="horizontal"
+    android:background="@drawable/border1"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginLeft="7dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/nooftshirtsF"
-        android:text="No of TShirts :"
+        android:text="  No of TShirts :  "
         android:textStyle="bold"
-        android:layout_marginTop="10dp"
         android:textSize="20dp"
         />
 
@@ -185,17 +216,20 @@
         />
 </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/border1"
+        android:layout_marginTop="5dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/noofjeansF"
-        android:text="No of Jeans :"
+        android:text="  No of Jeans :  "
         android:textStyle="bold"
-        android:layout_marginTop="10dp"
         android:textSize="20dp"
         />
 
@@ -209,17 +243,21 @@
 
     </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border1"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
+        >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/noofethenicwearF"
-        android:text="No of Ethnic Wears :"
+        android:text="  No of Ethnic Wears :  "
         android:textStyle="bold"
         android:textSize="20dp"
-        android:layout_marginTop="10dp"
         />
 
     <EditText
@@ -236,6 +274,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/cDonatebtn"
         android:text="DONATE"
+        android:background="@drawable/border"
+        android:layout_centerHorizontal="true"
         android:textSize="20dp"
         android:layout_below="@+id/edittext_ethnicwearf"
         android:layout_marginTop="20dp"

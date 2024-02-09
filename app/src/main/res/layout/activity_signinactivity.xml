@@ -7,7 +7,7 @@
     tools:context=".Signinactivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/b">
+    android:background="@drawable/bk">
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,11 +30,12 @@
         >
         <EditText
             android:id="@+id/semailfield"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
             android:layout_marginTop="32dp"
+            android:background="@drawable/border1"
             android:layout_gravity="center"
-            android:hint="Email"
+            android:hint="  Email"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
     <!-- An EditText to enter the password -->
@@ -46,11 +47,12 @@
         >
         <EditText
             android:id="@+id/spasswordfield"
-            android:layout_width="370dp"
+            android:layout_width="340dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/border1"
             android:layout_marginTop="16dp"
             android:layout_gravity="center"
-            android:hint="Password"
+            android:hint="  Password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 

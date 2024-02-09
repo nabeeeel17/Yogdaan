@@ -6,49 +6,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FoodCategoryList"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         style="?actionBarStyle"
+        app:title="Food Category"
         android:id="@+id/foodcategorytoolbar"
-        android:background="@color/Pista"
+        android:background="#52B156"
         />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:id="@+id/food"
-        android:layout_marginLeft="5dp"
-        android:text="What do you want to donate"
-        android:textSize="20dp"
+        android:background="@drawable/border1"
+        android:textStyle="bold"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:text="  What do you want to donate  "
+        android:textSize="20sp"
         android:layout_marginTop="70dp"
         />
 
     <EditText
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:id="@+id/food_edittext"
-        android:layout_marginLeft="5dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:hint="Eg. Pulav , Dal Rice"
+        android:background="@drawable/border1"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="110dp"
+        android:hint="  Eg. Pulav , Dal Rice  "
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="For How Many No of Pepole You Wnat To Donate :"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:textStyle="bold"
+        android:background="@drawable/border1"
+        android:text="  For How Many No of Pepole You Want To Donate : "
         android:id="@+id/noofpeopel"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_marginTop="160dp"/>
 
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:id="@+id/noofpeopel_edittxt"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
+        android:background="@drawable/border1"
+        android:hint="  Eg. 5  "
+        android:layout_marginTop="220dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
         android:inputType="number"
         />
 
@@ -56,24 +70,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/date"
-        android:hint="Select the date on which you want to donate*"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border"
+        android:hint="  Select the date on which you want to donate*  "
         android:layout_below="@+id/noofpeopel_edittxt"
         android:textStyle="bold"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_below="@+id/date"
         android:id="@+id/selecteddate"
+        android:hint=" DATE "
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/border1"
        android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="20sp"
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DONATE"
+        android:text=" DONATE "
+        android:layout_marginTop="20dp"
         android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border"
         android:id="@+id/fooddonatebutton"
         android:layout_below="@+id/selecteddate"
         android:layout_marginLeft="140dp"/>

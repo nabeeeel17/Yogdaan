@@ -42,16 +42,16 @@ public class ClothingCategoryList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clothingcategory);
-        setToolbar();
+        //setToolbar();
         init();
 
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
 donate.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
@@ -103,11 +103,11 @@ donate.setOnClickListener(new View.OnClickListener() {
         });
 
     }
-    public void setToolbar(){
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-    }
+//    public void setToolbar(){
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//
+//    }
 
     private  void  init(){
         toolbar = findViewById(R.id.clothingcategorytoolbar);

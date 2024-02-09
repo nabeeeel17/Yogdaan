@@ -12,47 +12,65 @@
         android:layout_height="?actionBarSize"
         style="?actionBarStyle"
         android:id="@+id/bookscategorytoolbar"
-        android:background="@color/Pista"
+        app:title="Books Category"
+        android:background="#52B156"
         />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Type Of Books :"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="  Type Of Books :  "
+        android:background="@drawable/border1"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
         android:textSize="20dp"
+        android:textStyle="bold"
         android:layout_marginTop="70dp" />
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:textStyle="bold"
+        android:background="@drawable/border1"
         android:id="@+id/booktype"
-        android:hint="e.g Educational"/>
+        android:hint="  e.g Educational  "/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No of Books :"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="  No of Books :  "
+        android:textStyle="bold"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/border1"
         android:textSize="20dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="170dp"
         />
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:inputType="number"
-        android:layout_marginTop="180dp"
+        android:background="@drawable/border1"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="210dp"
         android:id="@+id/noofbooks"
-        android:hint="e.g 5"/>
+        android:textStyle="bold"
+        android:hint="  e.g 5  "/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DONATE"
+        android:text="  DONATE  "
         android:textSize="20dp"
+        android:background="@drawable/border"
         android:id="@+id/booksdonate"
-        android:layout_marginTop="250dp"
-        android:layout_marginLeft="150dp"/>
+        android:layout_marginTop="300dp"
+        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>
