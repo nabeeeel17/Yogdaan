@@ -66,31 +66,26 @@ public class OrganizationDashboard extends AppCompatActivity {
 
                 int id=item.getItemId();
 
-                if(id==R.id.opthelp){
-                   // Intent ihelp=new Intent(OrganizationDashboard.this,HelpDonorActivity.class);
-                  //  ihelp.putExtra("Email",email);
-                  //  startActivity(ihelp);
-                } else if (id==R.id.optlogout) {
+                if(id==R.id.optorgprofile){
+                    Intent iprofile=new Intent(OrganizationDashboard.this, OrgProfile.class);
+                    iprofile.putExtra("Email",email);
+                    startActivity(iprofile);
+
+                } else if (id==R.id.optorglogout) {
                    auth.signOut();
                    Intent ilogout=new Intent(OrganizationDashboard.this,Loginactivity.class);
                    ilogout.putExtra("Email",email);
                    startActivity(ilogout);
 
-
                 }
-                else if (id==R.id.optprofile){
-                    Intent iprofile=new Intent(OrganizationDashboard.this, OrgProfile.class);
-                    iprofile.putExtra("Email",email);
-                    startActivity(iprofile);
 
-                }
                 else {
                     Toast.makeText(OrganizationDashboard.this, "Already on Home Page", Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }
         });
-        bottomNavigationView.setSelectedItemId(R.id.opthome);
+        bottomNavigationView.setSelectedItemId(R.id.optorghome);
 
     }
 

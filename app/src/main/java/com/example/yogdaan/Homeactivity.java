@@ -51,10 +51,10 @@ public class Homeactivity extends AppCompatActivity {
 
                 int id=item.getItemId();
 
-               if(id==R.id.opthelp){
-                   Intent ihelp=new Intent(Homeactivity.this,HelpDonorActivity.class);
-                   ihelp.putExtra("Email",email);
-                   startActivity(ihelp);
+               if(id==R.id.optprofile){
+                   Intent iprofile=new Intent(Homeactivity.this,UserProfile.class);
+                   iprofile.putExtra("Email",email);
+                   startActivity(iprofile);
                } else if (id==R.id.optlogout) {
                    firebaseAuth.signOut();
                    Intent ilogout=new Intent(Homeactivity.this,Loginactivity.class);
@@ -63,12 +63,7 @@ public class Homeactivity extends AppCompatActivity {
 
 
                }
-               else if (id==R.id.optprofile){
-                   Intent iprofile=new Intent(Homeactivity.this,UserProfile.class);
-                   iprofile.putExtra("Email",email);
-                   startActivity(iprofile);
 
-               }
                else {
                    Toast.makeText(Homeactivity.this, "Already on Home Page", Toast.LENGTH_SHORT).show();
                }

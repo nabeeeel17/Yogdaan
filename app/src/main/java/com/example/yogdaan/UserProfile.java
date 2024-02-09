@@ -84,10 +84,8 @@ public class UserProfile extends AppCompatActivity {
                 if(id==R.id.opthome){
                     Intent ihome=new Intent(UserProfile.this,Homeactivity.class);
                     startActivity(ihome);
-                } else if (id==R.id.opthelp) {
-                    Intent ihelp=new Intent(UserProfile.this,HelpDonorActivity.class);
-                    startActivity(ihelp);
                 }
+
                 else if (id==R.id.optlogout){
                     Intent ilogout=new Intent(UserProfile.this,Loginactivity.class);
                     ilogout.putExtra("Email",email);
@@ -272,7 +270,7 @@ public class UserProfile extends AppCompatActivity {
             spinner = findViewById(R.id.profilespinneruserbloodtype);
             logintype = getIntent().getStringExtra("Login Type");
             submit = findViewById(R.id.updatebutton);
-            documentReference = cref.document(useremail);
+            //documentReference = cref.document(useremail);
             emailedittext.setText(useremail);
 
         firestore.collection("Users Details").document(useremail).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

@@ -97,12 +97,12 @@
         android:layout_gravity="center"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomnav"
+        android:id="@+id/bottomnavprofile"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="195dp"
         android:background="@color/Pista"
-        app:menu="@menu/toolbaritems" />
+        app:menu="@menu/bottomnavigationorg" />
 
 
 </LinearLayout>

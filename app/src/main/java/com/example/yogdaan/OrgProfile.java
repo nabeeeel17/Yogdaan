@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -28,7 +30,9 @@ import java.util.Map;
 
 public class OrgProfile extends AppCompatActivity {
     EditText orgname , orgmbno , orgemail, orgupi , orgaddress , orgpincode;
+    String email;
     FirebaseFirestore firestore;
+    BottomNavigationView b1;
     ArrayList<String> list ;
     FirebaseUser user ;
     FirebaseAuth auth;
@@ -44,6 +48,32 @@ public class OrgProfile extends AppCompatActivity {
         init();
         setDetails();
 
+
+        b1.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int id=item.getItemId();
+
+                if(id==R.id.optorghome){
+                    Intent ihome=new Intent(OrgProfile.this,OrganizationDashboard.class);
+                    ihome.putExtra("Email",email);
+                    startActivity(ihome);
+
+                }
+                else if (id==R.id.optorglogout){
+                    Intent ilogout=new Intent(OrgProfile.this,Loginactivity.class);
+                    auth.signOut();
+                    startActivity(ilogout);
+
+                }
+                else {
+                    Toast.makeText(OrgProfile.this, "Already on Profile Page", Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+        });
+        b1.setSelectedItemId(R.id.optorgprofile);
         update.setOnClickListener(new View.OnClickListener() {
 
 
@@ -128,11 +158,12 @@ public class OrgProfile extends AppCompatActivity {
         orgmbno = findViewById(R.id.orgprofilephoneno);
         orgemail = findViewById(R.id.orgprofileemailid);
         update = findViewById(R.id.orgupdatebutton);
+        firestore = FirebaseFirestore.getInstance();
         orgupi = findViewById(R.id.orgprofileupiid);
         spinner = findViewById(R.id.profilespinnerorgcategory);
         orgaddress = findViewById(R.id.orgprofileaddress);
         orgpincode = findViewById(R.id.orgprofilepincode);
-        firestore = FirebaseFirestore.getInstance();
+        b1=findViewById(R.id.bottomnavprofile);
         user = FirebaseAuth.getInstance().getCurrentUser();
         cref = firestore.collection("Organization Details");
         list = new ArrayList<>();
