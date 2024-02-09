@@ -2,8 +2,11 @@ package com.example.yogdaan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +24,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class BloodDonatedOrg extends AppCompatActivity {
     TextView dname , dmbno , demail , mhistory , h , w , bloodtype , date;
     String donorname;
+    private static final int REQUEST_PHONE_CALL = 1;
+
+    Intent callintent;
     Button call;
     FirebaseFirestore firestore;
     FirebaseUser firebaseUser;
@@ -35,15 +41,38 @@ public class BloodDonatedOrg extends AppCompatActivity {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                String no = "+91"+dmbno.getText().toString();
-                intent.setData(Uri.parse("tel:"+no));
-                startActivity(intent);
+              checkpermissionandmakecall();
 
             }
         });
 
     }
+    private void callperson() {
+        callintent = new Intent(Intent.ACTION_CALL);
+        String no = "+91" + dmbno.getText().toString();
+        callintent.setData(Uri.parse("tel:" + no));
+        startActivity(callintent);
+    }
+
+    private void checkpermissionandmakecall(){
+        if(ActivityCompat.checkSelfPermission(BloodDonatedOrg.this , Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(BloodDonatedOrg.this , new String[]{Manifest.permission.CALL_PHONE} , REQUEST_PHONE_CALL);
+        }
+        else {
+            callperson();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode==REQUEST_PHONE_CALL){
+            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            }
+        }
+    }
+
     public  void init(){
         dname = findViewById(R.id.bdnametv);
         dmbno = findViewById(R.id.bdmbnotv);

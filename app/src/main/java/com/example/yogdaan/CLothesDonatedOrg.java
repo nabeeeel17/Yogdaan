@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -26,6 +27,9 @@ public class CLothesDonatedOrg extends AppCompatActivity {
     TextView dname , dmbno , demail , dcforage , dmshirt , dmtshirt , dmjeans , dfshirts , dftshirts , dfjeans , dfethnic;
     Button call;
     String donorname;
+    private static final int REQUEST_PHONE_CALL = 1;
+
+    Intent callintent;
     FirebaseFirestore firestore;
     CollectionReference cref;
     FirebaseUser user;
@@ -40,13 +44,35 @@ public class CLothesDonatedOrg extends AppCompatActivity {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                String no = "+91"+dmbno.getText().toString();
-                intent.setData(Uri.parse("tel:"+no));
-                startActivity(intent);
-
+              checkpermissionandmakecall();
             }
         });
+    }
+
+    private void callperson() {
+        callintent = new Intent(Intent.ACTION_CALL);
+        String no = "+91" + dmbno.getText().toString();
+        callintent.setData(Uri.parse("tel:" + no));
+        startActivity(callintent);
+    }
+
+    private void checkpermissionandmakecall(){
+        if(ActivityCompat.checkSelfPermission(CLothesDonatedOrg.this , android.Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(CLothesDonatedOrg.this , new String[]{Manifest.permission.CALL_PHONE} , REQUEST_PHONE_CALL);
+        }
+        else {
+            callperson();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode==REQUEST_PHONE_CALL){
+            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            }
+        }
     }
 
     public  void init(){
