@@ -31,6 +31,7 @@ public class OrganizationDashboard extends AppCompatActivity {
 
     CardView emergency , donreq;
     private static final int REQUEST_PHONE_CALL = 1;
+    private static final int REQUEST_PHONE_IMAGE = 1;
     FirebaseFirestore firestore;
     BottomNavigationView bottomNavigationView;
     FirebaseUser user ;
@@ -43,6 +44,9 @@ public class OrganizationDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_organization_dashboard);
         init();
         checkpermissionandmakecall();
+        checkimagepermission();
+
+
 
         donreq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,14 +110,23 @@ public class OrganizationDashboard extends AppCompatActivity {
             Toast.makeText(this, "granted already", Toast.LENGTH_SHORT).show();
         }
     }
+    private void checkimagepermission() {
+        if(ActivityCompat.checkSelfPermission(OrganizationDashboard.this , Manifest.permission.READ_MEDIA_IMAGES)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(OrganizationDashboard.this , new String[]{Manifest.permission.READ_MEDIA_IMAGES}, REQUEST_PHONE_IMAGE);
+        }
+        else {
+            Toast.makeText(this, "Image permission already granted", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode==REQUEST_PHONE_CALL){
-            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
-            }
+        }
+        if (requestCode==REQUEST_PHONE_IMAGE){
+            Toast.makeText(this, "granted permission", Toast.LENGTH_SHORT).show();
         }
     }
 

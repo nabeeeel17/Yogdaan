@@ -175,6 +175,7 @@ public class UserProfile extends AppCompatActivity {
           @Override
           public void onComplete(@NonNull Task<Void> task) {
               Toast.makeText(UserProfile.this, "success", Toast.LENGTH_SHORT).show();
+              finish();
           }
       });
     }

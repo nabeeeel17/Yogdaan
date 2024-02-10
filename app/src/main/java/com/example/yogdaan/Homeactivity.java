@@ -32,6 +32,7 @@ public class Homeactivity extends AppCompatActivity {
     Intent intent;
     Toolbar toolbar;
     private static final int REQUEST_PHONE_CALL = 1;
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
 
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
@@ -48,6 +49,7 @@ public class Homeactivity extends AppCompatActivity {
         setContentView(R.layout.activity_homeactivity);
         init();
         setToolbar();
+        checkpermissions();
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -141,11 +143,15 @@ public class Homeactivity extends AppCompatActivity {
 
 
     }
-    private void checkpermissionandmakecall(){
+    private void checkpermissions(){
         if(ActivityCompat.checkSelfPermission(Homeactivity.this , android.Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
-            Toast.makeText(this, "requesting permission", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "requesting call permission", Toast.LENGTH_SHORT).show();
             ActivityCompat.requestPermissions(Homeactivity.this , new String[]{Manifest.permission.CALL_PHONE} , REQUEST_PHONE_CALL);
+        } else if (ActivityCompat.checkSelfPermission(Homeactivity.this , Manifest.permission.READ_MEDIA_IMAGES)!= PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(this, "requesting STORAGE permission", Toast.LENGTH_SHORT).show();
+            ActivityCompat.requestPermissions(Homeactivity.this , new String[]{Manifest.permission.READ_MEDIA_IMAGES} , REQUEST_EXTERNAL_STORAGE);
         }
+
         else {
             //callperson();
             Toast.makeText(this, "granted already", Toast.LENGTH_SHORT).show();
@@ -156,9 +162,10 @@ public class Homeactivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode==REQUEST_PHONE_CALL){
-            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
-            }
+        }
+        if (requestCode==REQUEST_EXTERNAL_STORAGE){
+
         }
     }
 
@@ -167,6 +174,7 @@ public class Homeactivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
+
 
     void init(){
         toolbar = findViewById(R.id.hometoolbar);

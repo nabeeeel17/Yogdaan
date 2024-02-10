@@ -76,11 +76,11 @@ Button donate , date ;
                 DatePickerDialog datePickerDialog =new DatePickerDialog(BloodCategoryList.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        month = month+1;
+                        month=month+1;
                         sdate =day+"-"+month+"-"+year;
                         selecteddate.setText("Selected Date : "+sdate);
                     }
-                },year,month , day);
+                },year,month, day);
                 datePickerDialog.show();
 
 

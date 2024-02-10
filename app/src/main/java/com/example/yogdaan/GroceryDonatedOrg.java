@@ -82,7 +82,7 @@ public class GroceryDonatedOrg extends AppCompatActivity {
         donorname = getIntent().getStringExtra("Donor Name");
         firestore = FirebaseFirestore.getInstance();
 
-        firestore.collection("Grocery Donation Details").document(user.getEmail()).get()
+        firestore.collection("Grocery Donation Details").document(donorname).get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {

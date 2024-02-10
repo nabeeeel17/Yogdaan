@@ -55,7 +55,19 @@ public class ClothingCategoryList extends AppCompatActivity {
 donate.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        registerdonation();
+
+        if(age.getText().toString().isEmpty()){
+            Toast.makeText(ClothingCategoryList.this, "Please Enter The Age for Donation", Toast.LENGTH_SHORT).show();
+        } else if
+        ( edtshirts.getText().toString().isEmpty() &&
+                edttshirts.getText().toString().isEmpty() && edtjeans.getText().toString().isEmpty()
+        && edtshirtsf.getText().toString().isEmpty() && edtjeansf.getText().toString().isEmpty() &&
+                edtethnicf.getText().toString().isEmpty()){
+            Toast.makeText(ClothingCategoryList.this, "You have to donate atleast one cloth", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            registerdonation();
+        }
     }
 });
 
