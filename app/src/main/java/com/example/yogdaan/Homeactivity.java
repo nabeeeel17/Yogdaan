@@ -51,7 +51,7 @@ public class Homeactivity extends AppCompatActivity {
         setToolbar();
         checkpermissions();
 
-
+        bottomNavigationView.setSelectedItemId(R.id.opthome);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -77,7 +77,7 @@ public class Homeactivity extends AppCompatActivity {
                 return false;
             }
         });
-        bottomNavigationView.setSelectedItemId(R.id.opthome);
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
