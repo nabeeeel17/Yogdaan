@@ -31,6 +31,7 @@
         <EditText
             android:id="@+id/semailfield"
             android:layout_width="340dp"
+            android:padding="5dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/border1"
@@ -52,6 +53,7 @@
             android:background="@drawable/border1"
             android:layout_marginTop="16dp"
             android:layout_gravity="center"
+            android:padding="5dp"
             android:hint="  Password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
