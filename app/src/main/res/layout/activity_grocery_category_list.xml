@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GroceryCategoryList">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -21,7 +24,6 @@
         android:layout_height="35dp"
         android:id="@+id/RawMaterial"
         android:textStyle="bold"
-        android:background="@drawable/border1"
         android:text=" Enter the type of Raw materials "
         android:layout_marginTop="70dp"
         android:textSize="20dp"
@@ -50,7 +52,6 @@
         android:textStyle="bold"
         android:text=" Amount of Raw Material "
        android:textSize="20dp"
-        android:background="@drawable/border1"
         android:layout_marginTop="170dp"
         android:layout_marginLeft="5dp"/>
 
@@ -106,5 +107,5 @@
         android:id="@+id/donategrocerybtn"
         android:textSize="20dp"
         android:layout_marginLeft="140dp"/>
-
 </RelativeLayout>
+</ScrollView>

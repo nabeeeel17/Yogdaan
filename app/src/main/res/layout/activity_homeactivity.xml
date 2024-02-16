@@ -216,13 +216,15 @@
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
-                        <ImageView
+                        <TextView
                             android:id="@+id/moneyImage"
                             android:layout_width="match_parent"
-                            android:layout_height="90dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="3dp"
-                            android:src="@drawable/money" />
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="COMING SOON"
+                            android:textSize="30dp"/>
 
                     </androidx.cardview.widget.CardView>
 

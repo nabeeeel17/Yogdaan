@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bk">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,9 +45,10 @@
             android:layout_height="wrap_content"
             android:hint="Enter Organisation Name"
             android:id="@+id/orgname"
-            android:background="@drawable/border"
-            android:padding="8dp"
+            android:background="@drawable/border2"
+            android:padding="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             />
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -52,10 +57,11 @@
             android:hint="Enter Organization Mobile Number"
             android:id="@+id/orgmbo"
             android:inputType="phone"
-            android:background="@drawable/border"
+            android:background="@drawable/border2"
             android:padding="8dp"
             android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"
@@ -63,20 +69,22 @@
             android:hint="Enter Organization E-Mail ID"
             android:id="@+id/orgemail"
             android:inputType="textEmailAddress"
-            android:background="@drawable/border"
+            android:background="@drawable/border2"
             android:padding="8dp"
             android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Organization address"
             android:id="@+id/orgaddress"
-            android:background="@drawable/border"
+            android:background="@drawable/border2"
             android:padding="8dp"
             android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -85,10 +93,11 @@
             android:hint="Organization Pin Code"
             android:inputType="number"
             android:id="@+id/orgpinc"
-            android:background="@drawable/border"
+            android:background="@drawable/border2"
             android:padding="8dp"
             android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -96,20 +105,22 @@
             android:layout_height="wrap_content"
             android:hint="Enter UPI ID of Organization"
             android:id="@+id/orgupiid"
-            android:background="@drawable/border"
+            android:background="@drawable/border2"
             android:padding="8dp"
             android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
-            android:background="@drawable/border"
+            android:background="@drawable/border2"
             android:padding="8dp"
             android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
 
     </LinearLayout>
@@ -122,5 +133,5 @@
         android:id="@+id/proceed"
         android:background="@color/Green"
         android:layout_marginTop="7dp"/>
-
 </LinearLayout>
+</ScrollView>

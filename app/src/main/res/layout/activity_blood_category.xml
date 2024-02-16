@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +8,10 @@
     tools:context=".BloodCategoryList"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -18,12 +22,11 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:id="@+id/MedicalHistory"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="@drawable/border1"
-        android:text="  Any Medical History  "
+        android:text="Any Medical History  "
         android:layout_marginTop="70dp"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"/>
@@ -37,7 +40,7 @@
         android:layout_marginLeft="7dp"
         android:padding="5dp"
         android:layout_marginRight="7dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:id="@+id/edtmedicalhistory"
         android:hint="  e.g:Blood pressure,Diabeties...  "
         android:textSize="15dp"
@@ -46,14 +49,14 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:id="@+id/Height"
-        android:background="@drawable/border1"
+
         android:textSize="20dp"
         android:textStyle="bold"
         android:layout_marginRight="7dp"
-        android:text="  Enter your Height  "
-        android:layout_marginTop="170dp"
+        android:text="Enter your Height  "
+        android:layout_marginTop="150dp"
         android:layout_marginLeft="7dp"/>
 
     <EditText
@@ -73,13 +76,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:id="@+id/Weight"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:background="@drawable/border1"
-        android:text="  Enter your Weight  "
-        android:layout_marginTop="270dp"
+        android:text="Enter your Weight  "
+        android:layout_marginTop="230dp"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"/>
 
@@ -110,11 +112,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/border1"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:textSize="20dp"
-            android:text="  Please Select Your Blood Group  "
+            android:text="Please Select Your Blood Group  "
             android:layout_weight="1"
             android:textStyle="bold"/>
 
@@ -169,4 +170,5 @@
         android:text="DONATE"
         android:textSize="15dp" />
 
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

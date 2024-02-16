@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BooksCategoryList">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -20,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:text="  Type Of Books :  "
-        android:background="@drawable/border1"
+
         android:layout_marginRight="7dp"
         android:layout_marginLeft="7dp"
         android:textSize="20dp"
@@ -46,7 +49,7 @@
         android:textStyle="bold"
         android:layout_marginRight="7dp"
         android:layout_marginLeft="7dp"
-        android:background="@drawable/border1"
+
         android:textSize="20dp"
         android:layout_marginTop="170dp"
         />
@@ -74,5 +77,5 @@
         android:layout_marginTop="300dp"
         android:layout_centerHorizontal="true"/>
 
-
 </RelativeLayout>
+</ScrollView>
