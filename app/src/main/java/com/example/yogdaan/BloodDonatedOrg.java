@@ -2,6 +2,7 @@ package com.example.yogdaan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
@@ -25,7 +26,6 @@ public class BloodDonatedOrg extends AppCompatActivity {
     TextView dname , dmbno , demail , mhistory , h , w , bloodtype , date;
     String donorname;
     private static final int REQUEST_PHONE_CALL = 1;
-
     Intent callintent;
     Button call;
     FirebaseFirestore firestore;
@@ -73,7 +73,9 @@ public class BloodDonatedOrg extends AppCompatActivity {
         }
     }
 
+
     public  void init(){
+
         dname = findViewById(R.id.bdnametv);
         dmbno = findViewById(R.id.bdmbnotv);
         demail = findViewById(R.id.bdemailtv);

@@ -17,7 +17,7 @@ public class DonationSuccessful extends AppCompatActivity {
         setContentView(R.layout.activity_donation_successful);
 
         lottieAnimationView=findViewById(R.id.tick);
-        lottieAnimationView.setAnimation(R.raw.bluetick);
+        lottieAnimationView.setAnimation(R.raw.successful);
 
 
         new Handler().postDelayed(new Runnable() {
@@ -28,7 +28,7 @@ public class DonationSuccessful extends AppCompatActivity {
                 startActivity(itick);
                 finish();
             }
-        },5500);
+        },2000);
 
     }
 }

@@ -13,7 +13,7 @@
         style="?actionBarStyle"
         android:id="@+id/bloodtoolbar"
         android:background="@color/Pista"
-        app:title="Charity List"/>
+        app:title="Blood List"/>
 
 
     <androidx.recyclerview.widget.RecyclerView

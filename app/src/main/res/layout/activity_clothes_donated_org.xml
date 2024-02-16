@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,12 +8,18 @@
     tools:context=".CLothesDonatedOrg"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         style="?actionBarStyle"
         android:id="@+id/clothesdonated"
         android:background="@color/Pista"
+        app:title="Donation Details"
         />
 
     <LinearLayout
@@ -21,7 +27,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/border">
+        >
         <TextView
             android:id="@+id/dname"
             android:layout_width="wrap_content"
@@ -48,7 +54,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/border">
+        >
         <TextView
             android:id="@+id/dmbno"
             android:layout_width="wrap_content"
@@ -70,7 +76,6 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/border"
             android:text="Call Donor"
             android:id="@+id/callbutton"/>
 
@@ -81,7 +86,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/border">
+        >
         <TextView
             android:id="@+id/demail"
             android:layout_width="wrap_content"
@@ -345,5 +350,5 @@
             />
 
     </LinearLayout>
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

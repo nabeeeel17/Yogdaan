@@ -232,7 +232,6 @@
                         android:id="@+id/bookcard"
                         android:layout_width="160dp"
                         android:layout_height="140dp"
-
                         android:layout_margin="10dp"
                         app:cardCornerRadius="20dp">
 

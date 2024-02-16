@@ -15,7 +15,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="130dp"
         android:id="@+id/tick"
-        app:lottie_rawRes="@raw/bluetick"
+        app:lottie_rawRes="@raw/successful"
         />
 
     <TextView

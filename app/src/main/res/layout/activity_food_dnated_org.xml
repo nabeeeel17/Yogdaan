@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FoodDnatedOrg"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -14,6 +18,7 @@
         style="?actionBarStyle"
         android:id="@+id/fooddonatedtoolbar"
         android:background="@color/Pista"
+        app:title="Donation Details"
         />
 
     <LinearLayout
@@ -21,7 +26,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/border">
+        >
+
         <TextView
             android:id="@+id/dname"
             android:layout_width="wrap_content"
@@ -48,7 +54,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/border">
+        >
+
         <TextView
             android:id="@+id/dmbno"
             android:layout_width="wrap_content"
@@ -70,7 +77,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/border"
+
             android:text="Call Donor"
             android:id="@+id/fcallbutton"/>
 
@@ -81,7 +88,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/border">
+        >
         <TextView
             android:id="@+id/demail"
             android:layout_width="wrap_content"
@@ -109,6 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fooddonated"
+        android:textStyle="bold"
         android:layout_marginLeft="5dp"
         android:text="Food Donated : "
         android:textSize="20dp"
@@ -127,6 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:textStyle="bold"
         android:text="No of People for which donor wants to donate :"
         android:id="@+id/foodfornoofpeopel"
         android:textSize="20dp"
@@ -153,6 +162,7 @@
             android:layout_height="wrap_content"
             android:text="Date :"
             android:textSize="20dp"
+            android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"/>
 
@@ -165,5 +175,5 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"/>
     </LinearLayout>
-
 </LinearLayout>
+</ScrollView>
