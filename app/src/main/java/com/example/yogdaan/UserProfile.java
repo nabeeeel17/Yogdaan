@@ -175,6 +175,7 @@ public class UserProfile extends AppCompatActivity {
           @Override
           public void onComplete(@NonNull Task<Void> task) {
               Toast.makeText(UserProfile.this, "success", Toast.LENGTH_SHORT).show();
+              startActivity(new Intent(UserProfile.this , Homeactivity.class));
               finish();
           }
       });
@@ -291,7 +292,7 @@ public class UserProfile extends AppCompatActivity {
             }
         });
         list = new ArrayList<>();
-        list.add("Please Select Your Blood Type");
+
             list.add("A+");
             list.add("A-");
             list.add("B+");

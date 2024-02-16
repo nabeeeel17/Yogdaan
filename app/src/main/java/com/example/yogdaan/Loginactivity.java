@@ -130,8 +130,8 @@ public class Loginactivity extends AppCompatActivity {
             }
         }
 
-        private void loginuser (String email, String pass){
-            firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        private void loginuser (String email2, String pass){
+            firebaseAuth.signInWithEmailAndPassword(email2, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
@@ -147,7 +147,7 @@ public class Loginactivity extends AppCompatActivity {
 
                                 Intent intent;
                                 intent = new Intent(Loginactivity.this, UserDetails.class);
-                                intent.putExtra("Email", email);
+                                intent.putExtra("Email", email2);
                                 intent.putExtra("Login Type", "Donor");
                                 startActivity(intent);
                                 Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
@@ -159,14 +159,14 @@ public class Loginactivity extends AppCompatActivity {
 
                                 Intent intent;
                                 intent = new Intent(Loginactivity.this, Homeactivity.class);
-                                intent.putExtra("Email", email);
+                                intent.putExtra("Email", email2);
                                 intent.putExtra("Login Type", "Donor");
                                 startActivity(intent);
                                 Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
-                                firestore.collection("Users Details").document(email).update("Type of User" , "Donor").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                firestore.collection("Users Details").document(email.getText().toString()).update("Type of User" , "Donor").addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        Toast.makeText(Loginactivity.this, "Donor", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Loginactivity.this, "Donor changed", Toast.LENGTH_SHORT).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -184,7 +184,7 @@ public class Loginactivity extends AppCompatActivity {
 
                                 type = radioButton2.getText().toString();
                                 Intent intent = new Intent(Loginactivity.this, Organisationdetails.class);
-                                intent.putExtra("Email", email);
+                                intent.putExtra("Email", email2);
                                 intent.putExtra("Login Type", type);
                                 startActivity(intent);
                                 Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
@@ -193,14 +193,14 @@ public class Loginactivity extends AppCompatActivity {
                        else {
                                 type = radioButton2.getText().toString();
                                 Intent intent = new Intent(Loginactivity.this, OrganizationDashboard.class);
-                                intent.putExtra("Email", email);
+                                intent.putExtra("Email", email2);
                                 intent.putExtra("Login Type", type);
                                 startActivity(intent);
                                 Toast.makeText(Loginactivity.this, type + " Login Successful", Toast.LENGTH_SHORT).show();
-                                firestore.collection("Users Details").document(email).update("Type of User" , "Organisation").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                firestore.collection("Users Details").document(email.getText().toString()).update("Type of User" , "Organisation").addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        Toast.makeText(Loginactivity.this, "Organisaton", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Loginactivity.this, "Organisaton changed", Toast.LENGTH_SHORT).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
