@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -53,6 +56,9 @@ public class emergency extends AppCompatActivity {
                         dm.setUsername(document.getString("Name"));
                         dm.setUserphoneno(document.getString("Phone No"));
                         dm.setUserbloodtype(document.getString("Blood Type"));
+                        dm.setEmail(document.getString("Email"));
+                        Log.e("email" ,""+document.getString("Email"));
+
                         list.add(dm);
                         Toast.makeText(emergency.this, "iffff", Toast.LENGTH_SHORT).show();
                     }
@@ -64,6 +70,9 @@ public class emergency extends AppCompatActivity {
             }
         });
 
+    }
+    public Bitmap byteArrayToBitmap(byte[] byteArray) {
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
     }
 
 

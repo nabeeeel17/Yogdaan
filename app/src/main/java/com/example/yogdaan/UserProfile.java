@@ -72,7 +72,7 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
         init();
         setUser();
-        seturi();
+       seturi();
         bottomNavigationView.setSelectedItemId(R.id.optprofile);
 
 
