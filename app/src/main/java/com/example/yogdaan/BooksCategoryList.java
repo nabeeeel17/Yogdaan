@@ -91,11 +91,13 @@ public class BooksCategoryList extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(BooksCategoryList.this , DonationSuccessful.class);
                         startActivity(intent);
+                        finish();
                     }
                 });
 
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+
             }
         });
 

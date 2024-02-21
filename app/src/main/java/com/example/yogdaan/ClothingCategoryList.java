@@ -105,13 +105,14 @@ donate.setOnClickListener(new View.OnClickListener() {
                         Intent intent = new Intent(ClothingCategoryList.this , DonationSuccessful.class);
                         intent.putExtra("Email",donoremail);
                         startActivity(intent);
-
-
+                        finish();
                     }
                 });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+
             }
+
         });
 
     }

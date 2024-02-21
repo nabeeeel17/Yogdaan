@@ -88,6 +88,7 @@ public class OrganizationDashboard extends AppCompatActivity {
                    Intent ilogout=new Intent(OrganizationDashboard.this,Loginactivity.class);
                    ilogout.putExtra("Email",email);
                    startActivity(ilogout);
+                   finish();
 
                 }
 

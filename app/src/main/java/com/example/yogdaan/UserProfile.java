@@ -85,6 +85,7 @@ public class UserProfile extends AppCompatActivity {
                 if(id==R.id.opthome){
                     Intent ihome=new Intent(UserProfile.this,Homeactivity.class);
                     startActivity(ihome);
+                    finish();
                 }
 
                 else if (id==R.id.optlogout){
@@ -92,6 +93,7 @@ public class UserProfile extends AppCompatActivity {
                     ilogout.putExtra("Email",email);
                     auth.signOut();
                     startActivity(ilogout);
+                    finish();
 
                 }
                 else {

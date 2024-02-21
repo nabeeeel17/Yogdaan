@@ -63,14 +63,15 @@ public class GroceryCategoryList extends AppCompatActivity {
             public void onClick(View view) {
                 calendar = Calendar.getInstance();
                 year = calendar.get(Calendar.YEAR);
-                month = calendar.get(Calendar.DAY_OF_MONTH);
+                month = calendar.get(Calendar.MONTH);
                 day = calendar.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog datePickerDialog =new DatePickerDialog(GroceryCategoryList.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        month = month+1;
-                        sdate =day+"-"+month+"-"+year;
+                        //month = month+1;
+                        sdate =day+"-"+(month+1)+"-"+year;
+
                         selecteddate.setText("Selected Date : "+sdate);
                     }
                 },year,month , day);
@@ -120,11 +121,13 @@ public class GroceryCategoryList extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(GroceryCategoryList.this , DonationSuccessful.class);
                         startActivity(intent);
+                        finish();
                     }
                 });
 
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+
             }
         });
     }

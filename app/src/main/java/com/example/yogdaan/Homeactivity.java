@@ -67,8 +67,7 @@ public class Homeactivity extends AppCompatActivity {
                    Intent ilogout=new Intent(Homeactivity.this,Loginactivity.class);
                    ilogout.putExtra("Email",email);
                    startActivity(ilogout);
-
-
+                   finish();
                }
 
                else {

@@ -48,7 +48,7 @@ public class OrgProfile extends AppCompatActivity {
         init();
         setDetails();
 
-
+        b1.setSelectedItemId(R.id.optorgprofile);
         b1.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -59,12 +59,14 @@ public class OrgProfile extends AppCompatActivity {
                     Intent ihome=new Intent(OrgProfile.this,OrganizationDashboard.class);
                     ihome.putExtra("Email",email);
                     startActivity(ihome);
+                    finish();
 
                 }
                 else if (id==R.id.optorglogout){
                     Intent ilogout=new Intent(OrgProfile.this,Loginactivity.class);
                     auth.signOut();
                     startActivity(ilogout);
+                    finish();
 
                 }
                 else {
@@ -73,7 +75,7 @@ public class OrgProfile extends AppCompatActivity {
                 return false;
             }
         });
-        b1.setSelectedItemId(R.id.optorgprofile);
+
         update.setOnClickListener(new View.OnClickListener() {
 
 
