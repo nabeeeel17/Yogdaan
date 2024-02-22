@@ -13,7 +13,7 @@
         style="?actionBarStyle"
         android:id="@+id/clothingtoolbar"
         android:background="@color/Pista"
-        app:title="Charity List"/>
+        app:title="Clothing Charity List"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
