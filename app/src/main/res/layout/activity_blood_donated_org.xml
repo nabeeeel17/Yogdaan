@@ -191,7 +191,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="sample text"
-            android:id="@+id/dateblood"
+            android:id="@+id/dateblood1"
             android:textSize="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"/>

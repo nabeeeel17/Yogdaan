@@ -83,7 +83,7 @@ public class BloodDonatedOrg extends AppCompatActivity {
         h = findViewById(R.id.Heightinft_edittxt);
         w =  findViewById(R.id.edittxt_weight);
         bloodtype = findViewById(R.id.bloodtype);
-        date = findViewById(R.id.bloodtype);
+        date = findViewById(R.id.dateblood1);
         donorname = getIntent().getStringExtra("Donor Name");
         call = findViewById(R.id.bcallbutton);
         Log.e("tgg" , ""+donorname);
@@ -101,6 +101,7 @@ public class BloodDonatedOrg extends AppCompatActivity {
                 date.setText(task.getResult().getString("Donor Blood Group"));
                 h.setText(task.getResult().getString("Donor Height"));
                 w.setText(task.getResult().getString("Donor Weight"));
+                date.setText(task.getResult().getString("Donation Date"));
                 bloodtype.setText(task.getResult().getString("Donor Blood Group"));
 
             }

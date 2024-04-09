@@ -113,7 +113,7 @@ Button donate , date ;
         Donation.put("Donor Medical History" , medicalh.getText().toString());
         Donation.put("Donor Height" , hft.getText().toString());
         Donation.put("Donor Weight" , wkg.getText().toString());
-        Donation.put("Donation Date" , selecteddate.getText().toString());
+        Donation.put("Donation Date" , sdate);
         Donation.put("Donor Blood Group" ,bg);
         Donation.put("Donated to" , orgname);
         Donation.put("Donor Phone No" , donorphone);
